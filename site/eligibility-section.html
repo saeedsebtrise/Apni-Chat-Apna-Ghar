@@ -1,0 +1,832 @@
+<style>
+    /* ============================================================
+   ACAG ELIGIBILITY — EXACT TIMELINE SPLIT LAYOUT (FIXED)
+   Fix 1: Google Fonts links removed (ab site-wide header/WPCode se load hote hain)
+   Fix 2: <ul> class elig-checklist -> elig-left-checklist (CSS se match)
+   Fix 3: villa image par width/height + loading="lazy" + decoding="async"
+   ============================================================ */
+    body {
+        overflow-x: hidden;
+    }
+
+    .acag-elig-section {
+        padding: 40px 0;
+        background-color: #f7faf8;
+        font-family: 'Inter', -apple-system, sans-serif;
+        color: #2d3748;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+
+    .acag-elig-section *,
+    .acag-elig-section *::before,
+    .acag-elig-section *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .acag-container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* ── HEADER ── */
+    .elig-header {
+        text-align: center;
+        margin-bottom: 36px;
+    }
+
+    .elig-badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #ffffff;
+        color: #115e3b;
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 8px 18px;
+        border-radius: 50px;
+        border: 1px solid rgba(17, 94, 59, 0.15);
+        box-shadow: 0 2px 10px rgba(17, 94, 59, 0.06);
+        margin-bottom: 14px;
+    }
+
+    .elig-badge-pill svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    .elig-header h2 {
+        font-size: clamp(1.8rem, 3.5vw, 2.4rem) !important;
+        font-weight: 900 !important;
+        color: #0b2216 !important;
+        line-height: 1.25 !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* Divider: Line - House - Line */
+    .elig-header-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin: 10px auto;
+    }
+
+    .elig-header-divider .line {
+        width: 60px;
+        height: 2px;
+        background-color: #115e3b;
+        border-radius: 2px;
+        opacity: 0.8;
+    }
+
+    .elig-header-divider svg {
+        color: #115e3b;
+        width: 20px;
+        height: 20px;
+    }
+
+    .elig-header p {
+        font-size: 0.92rem;
+        color: #556b5c;
+        line-height: 1.55;
+        max-width: 580px;
+        margin: 0 auto;
+    }
+
+    .elig-header p strong {
+        color: #115e3b;
+        font-weight: 700;
+    }
+
+    /* ── SPLIT MAIN WRAPPER ── */
+    .elig-main-layout {
+        display: grid;
+        grid-template-columns: 340px 1fr;
+        gap: 36px;
+        align-items: start;
+        margin-bottom: 30px;
+    }
+
+    /* ── LEFT SIDEBAR CARD ── */
+    .elig-left-card {
+        background: #ffffff;
+        border-radius: 20px;
+        border: 1px solid rgba(17, 94, 59, 0.08);
+        box-shadow: 0 10px 30px rgba(17, 94, 59, 0.04);
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Left Card Image Block */
+    .elig-left-img-block {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #d3ebd8 0%, #b8dfc1 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 19px;
+        border-top-right-radius: 19px;
+    }
+
+    .elig-left-img-block img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-top-left-radius: 19px;
+        border-top-right-radius: 19px;
+        display: block;
+    }
+
+    .elig-left-shield-badge {
+        position: absolute;
+        bottom: -28px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 56px;
+        height: 56px;
+        background: #115e3b;
+        border-radius: 50%;
+        border: 4px solid #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(17, 94, 59, 0.2);
+        z-index: 10;
+    }
+
+    .elig-left-shield-badge svg {
+        color: #ffffff;
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Left Card Content */
+    .elig-left-content {
+        padding: 44px 24px 24px;
+        text-align: center;
+    }
+
+    .elig-left-heading {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #2d3748;
+        line-height: 1.4;
+        margin-bottom: 20px;
+    }
+
+    .elig-left-heading span {
+        display: block;
+        color: #115e3b;
+        font-weight: 800;
+        margin-top: 4px;
+    }
+
+    .elig-left-checklist {
+        list-style: none;
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .elig-left-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        text-align: left;
+    }
+
+    .elig-left-icon-circle {
+        width: 32px;
+        height: 32px;
+        background-color: #f0f7f3;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .elig-left-icon-circle svg {
+        color: #115e3b;
+        width: 16px;
+        height: 16px;
+    }
+
+    .elig-left-text-group {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .elig-left-text-group strong {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #1a202c;
+        line-height: 1.3;
+    }
+
+    .elig-left-text-group strong span {
+        color: #115e3b;
+    }
+
+    .elig-left-text-group p {
+        font-size: 0.72rem;
+        color: #718096;
+        margin-top: 2px;
+    }
+
+    /* Left Card Button */
+    .elig-left-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background-color: #115e3b;
+        color: #ffffff !important;
+        text-decoration: none !important;
+        font-size: 0.88rem;
+        font-weight: 700;
+        padding: 14px 20px;
+        border-radius: 10px;
+        width: 100%;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        box-shadow: 0 4px 12px rgba(17, 94, 59, 0.15);
+    }
+
+    .elig-left-button:hover {
+        background-color: #0c472c;
+        transform: translateY(-1px);
+    }
+
+    .elig-left-button svg {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+    }
+
+    /* ── RIGHT TIMELINE ── */
+    .elig-right-timeline {
+        position: relative;
+        padding-left: 36px;
+    }
+
+    /* Dashed vertical line */
+    .elig-right-timeline::before {
+        content: '';
+        position: absolute;
+        top: 24px;
+        bottom: 24px;
+        left: 10px;
+        width: 2px;
+        border-left: 2px dashed rgba(17, 94, 59, 0.25);
+        z-index: 1;
+    }
+
+    .elig-timeline-row {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .elig-timeline-row:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Green Dot on Timeline */
+    .elig-timeline-dot {
+        position: absolute;
+        left: -32px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 14px;
+        height: 14px;
+        background-color: #115e3b;
+        border: 3px solid #e6f3eb;
+        border-radius: 50%;
+        z-index: 2;
+    }
+
+    /* White Card Wrapper */
+    .elig-timeline-card {
+        background: #ffffff;
+        border-radius: 16px;
+        border: 1px solid rgba(17, 94, 59, 0.08);
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        box-shadow: 0 4px 15px rgba(17, 94, 59, 0.02);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .elig-timeline-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(17, 94, 59, 0.06);
+    }
+
+    /* Card Number */
+    .elig-card-number {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #115e3b;
+        min-width: 32px;
+        text-align: center;
+    }
+
+    /* Small Vertical Divider */
+    .elig-card-divider {
+        width: 1px;
+        height: 40px;
+        background-color: #e2e8f0;
+    }
+
+    /* Icon Container */
+    .elig-card-icon-container {
+        width: 52px;
+        height: 52px;
+        background-color: #f0f7f3;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .elig-card-icon-container svg {
+        color: #115e3b;
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Text Block */
+    .elig-card-text-block {
+        flex: 1;
+    }
+
+    .elig-card-text-block h3 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 6px;
+    }
+
+    .elig-card-text-block p {
+        font-size: 0.85rem;
+        color: #4a5568;
+        line-height: 1.55;
+    }
+
+    .elig-card-text-block p strong {
+        color: #0b2216;
+        font-weight: 700;
+    }
+
+    .elig-card-text-block p a {
+        color: #115e3b;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    /* Arrow/Chevron down */
+    .elig-card-chevron {
+        width: 32px;
+        height: 32px;
+        background-color: #f7fafc;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #718096;
+        flex-shrink: 0;
+    }
+
+    .elig-card-chevron svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* ── BOTTOM NOTICE BAR ── */
+    .elig-bottom-notice {
+        background-color: #f1f7f3;
+        border: 1px solid rgba(17, 94, 59, 0.12);
+        border-radius: 16px;
+        padding: 18px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .elig-notice-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+    .elig-notice-circle-icon {
+        width: 32px;
+        height: 32px;
+        background-color: rgba(17, 94, 59, 0.08);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #115e3b;
+        flex-shrink: 0;
+    }
+
+    .elig-notice-circle-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .elig-notice-message {
+        font-size: 0.85rem;
+        color: #3d5a45;
+        line-height: 1.5;
+    }
+
+    .elig-notice-message strong {
+        color: #115e3b;
+        font-weight: 700;
+    }
+
+    /* Background House Line Vector */
+    .elig-notice-house-vector {
+        opacity: 0.12;
+        color: #115e3b;
+        height: 60px;
+        position: absolute;
+        right: 20px;
+        bottom: -10px;
+        pointer-events: none;
+    }
+
+    /* ── RESPONSIVE DESIGN ── */
+    @media (max-width: 991px) {
+        .elig-main-layout {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .elig-left-card {
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .elig-right-timeline {
+            padding-left: 28px;
+        }
+
+        .elig-right-timeline::before {
+            left: 6px;
+        }
+
+        .elig-timeline-dot {
+            left: -29px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .acag-elig-section {
+            padding: 50px 0;
+        }
+
+        .elig-header {
+            margin-bottom: 32px;
+        }
+
+        .elig-timeline-card {
+            padding: 16px;
+            gap: 12px;
+        }
+
+        .elig-card-number {
+            font-size: 1.25rem;
+            min-width: auto;
+        }
+
+        .elig-card-icon-container {
+            width: 44px;
+            height: 44px;
+        }
+
+        .elig-card-icon-container svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .elig-card-text-block h3 {
+            font-size: 0.95rem;
+        }
+
+        .elig-card-text-block p {
+            font-size: 0.8rem;
+        }
+
+        .elig-card-chevron {
+            display: none;
+            /* Hide chevron on tiny mobile to save space */
+        }
+
+        .elig-bottom-notice {
+            padding: 14px 16px;
+        }
+
+        .elig-notice-house-vector {
+            display: none;
+        }
+    }
+</style>
+
+<section class="acag-elig-section" id="eligibility" aria-label="Eligibility Criteria">
+    <div class="acag-container">
+
+        <!-- Header -->
+        <div class="elig-header">
+            <div class="elig-badge-pill">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+                </svg>
+                Eligibility Check
+            </div>
+            <h2>Are You Eligible for <span>Apni Chat Apna Ghar?</span></h2>
+            <div class="elig-header-divider">
+                <span class="line"></span>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
+                </svg>
+                <span class="line"></span>
+            </div>
+            <p>Before you apply, check these <strong>five conditions</strong>. You must meet <strong>all</strong> of
+                them to qualify for the ACAG scheme.</p>
+        </div>
+
+        <!-- Split Layout Wrapper -->
+        <div class="elig-main-layout">
+
+            <!-- LEFT SIDEBAR -->
+            <div class="elig-left-card">
+                <!-- House Illustration / Render -->
+                <div class="elig-left-img-block">
+                    <img src="https://apnichatapnaghar.net.pk/wp-content/uploads/2026/07/modern_villa_render.jpg" alt="Apni Chat Apna Ghar Modern House Render" width="680" height="400" loading="lazy" decoding="async">
+                    <!-- Overlapping Shield Badge -->
+                    <div class="elig-left-shield-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Info Block inside Left Card -->
+                <div class="elig-left-content">
+                    <p class="elig-left-heading">
+                        Built for deserving families.
+                        <span>Verified by government records.</span>
+                    </p>
+
+                    <!-- Checklist -->
+                    <ul class="elig-left-checklist">
+                        <li class="elig-left-item">
+                            <div class="elig-left-icon-circle">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="elig-left-text-group">
+                                <strong>Verified via <span>NADRA</span></strong>
+                                <p>National database verification</p>
+                            </div>
+                        </li>
+                        <li class="elig-left-item">
+                            <div class="elig-left-icon-circle">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div class="elig-left-text-group">
+                                <strong>Checked through <span>PLRA &amp; Patwari Records</span></strong>
+                                <p>Land ownership verification</p>
+                            </div>
+                        </li>
+                        <li class="elig-left-item">
+                            <div class="elig-left-icon-circle">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <div class="elig-left-text-group">
+                                <strong>Cross-verified across <span>government databases</span></strong>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- CTA Button -->
+                    <a href="https://apnichatapnaghar.net.pk/eligibility/" class="elig-left-button">
+                        Check My Eligibility Now
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- RIGHT TIMELINE MODULE -->
+            <div class="elig-right-timeline">
+
+                <!-- 01 -->
+                <div class="elig-timeline-row">
+                    <div class="elig-timeline-dot"></div>
+                    <div class="elig-timeline-card">
+                        <span class="elig-card-number">01</span>
+                        <span class="elig-card-divider"></span>
+                        <div class="elig-card-icon-container">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <div class="elig-card-text-block">
+                            <h3>PMT Score of 60 or Below</h3>
+                            <p>Your <strong>Proxy Means Test (PMT)</strong> score must be 60 or lower. This score is
+                                already in the <strong>NSER (National Socio-Economic Registry)</strong> database. If you
+                                are registered with <strong>BISP</strong> or the <strong>Ehsaas Program</strong>, your
+                                score is available. You can verify it at the <a href="https://nadra.gov.pk" target="_blank" rel="noopener">NADRA official portal</a>.</p>
+                        </div>
+                        <div class="elig-card-chevron">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 02 -->
+                <div class="elig-timeline-row">
+                    <div class="elig-timeline-dot"></div>
+                    <div class="elig-timeline-card">
+                        <span class="elig-card-number">02</span>
+                        <span class="elig-card-divider"></span>
+                        <div class="elig-card-icon-container">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="elig-card-text-block">
+                            <h3>Land Size Limit</h3>
+                            <p>You must own land registered in your name. In urban areas, the maximum plot size is
+                                <strong>5 marla</strong>. In rural areas, it is <strong>10 marla</strong>. Ownership is
+                                verified through <strong>PLRA (Punjab Land Record Authority)</strong> or patwari
+                                records.</p>
+                        </div>
+                        <div class="elig-card-chevron">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03 -->
+                <div class="elig-timeline-row">
+                    <div class="elig-timeline-dot"></div>
+                    <div class="elig-timeline-card">
+                        <span class="elig-card-number">03</span>
+                        <span class="elig-card-divider"></span>
+                        <div class="elig-card-icon-container">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                                <line x1="9" y1="22" x2="9" y2="16"></line>
+                                <line x1="15" y1="22" x2="15" y2="16"></line>
+                                <line x1="3" y1="22" x2="21" y2="22"></line>
+                            </svg>
+                        </div>
+                        <div class="elig-card-text-block">
+                            <h3>No Existing Home</h3>
+                            <p>You must not already own a <strong>constructed home</strong> anywhere in Pakistan.
+                                <strong>NADRA</strong> records are used to verify this. If any property is registered in
+                                your name, your application will be rejected.</p>
+                        </div>
+                        <div class="elig-card-chevron">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 04 -->
+                <div class="elig-timeline-row">
+                    <div class="elig-timeline-dot"></div>
+                    <div class="elig-timeline-card">
+                        <span class="elig-card-number">04</span>
+                        <span class="elig-card-divider"></span>
+                        <div class="elig-card-icon-container">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                        </div>
+                        <div class="elig-card-text-block">
+                            <h3>Punjab Resident</h3>
+                            <p>You must be a <strong>permanent resident of Punjab</strong>. Your <strong>CNIC</strong>
+                                must show a Punjab address. Temporary residents or people from other provinces are not
+                                eligible.</p>
+                        </div>
+                        <div class="elig-card-chevron">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 05 -->
+                <div class="elig-timeline-row">
+                    <div class="elig-timeline-dot"></div>
+                    <div class="elig-timeline-card">
+                        <span class="elig-card-number">05</span>
+                        <span class="elig-card-divider"></span>
+                        <div class="elig-card-icon-container">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 00-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 010 7.75"></path>
+                            </svg>
+                        </div>
+                        <div class="elig-card-text-block">
+                            <h3>Head of Family</h3>
+                            <p>Only the <strong>head of family</strong> can apply, as per <strong>NADRA</strong> family
+                                tree records. However, since the <strong>February 2026</strong> update, married sons
+                                living separately can also apply as independent applicants.</p>
+                        </div>
+                        <div class="elig-card-chevron">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BOTTOM NOTICE BAR -->
+        <div class="elig-bottom-notice">
+            <div class="elig-notice-left">
+                <div class="elig-notice-circle-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                </div>
+                <div class="elig-notice-message">
+                    <strong>Important:</strong> If you do not meet even one of these conditions, your application may be
+                    rejected. Make sure all your information is correct before applying.
+                </div>
+            </div>
+            <!-- Outline house SVG icon -->
+            <svg class="elig-notice-house-vector" viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="20" y="35" width="35" height="30" rx="2" fill="none"></rect>
+                <polygon points="37.5,18 10,40 65,40" fill="none"></polygon>
+                <rect x="30" y="48" width="10" height="17" rx="1" fill="none"></rect>
+                <rect x="60" y="30" width="40" height="35" rx="2" fill="none"></rect>
+                <polygon points="80,14 50,35 110,35" fill="none"></polygon>
+                <rect x="70" y="45" width="10" height="20" rx="1" fill="none"></rect>
+
+            </svg>
+        </div>
+
+    </div>
+</section>
