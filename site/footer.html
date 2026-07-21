@@ -1,0 +1,711 @@
+<style>
+/* ============================================================
+   APNI CHHAT APNA GHAR — Custom Footer Stylesheet (FIXED)
+   Fix 1: social icons ab <ul>/<li> hain — role="listitem" hataya
+   Fix 2: .logo-img height 92px (HTML height attribute se match)
+   ============================================================ */
+
+/* CSS Variables */
+:root {
+    --orange:        #F8802E;
+    --orange-light:  #ffa55a;
+    --orange-bg:      rgba(248, 128, 46, 0.07);
+    --orange-border: rgba(248, 128, 46, 0.22);
+    --green:         #166031;
+    --green-light:   #1d7a40;
+    --yellow:        #FFDB20;
+    --blue:          #003D86;
+    --white:         #ffffff;
+
+    --bg-footer:     #f7f8f6;
+    --bg-deep:       #eef0ec;
+    --bg-card:       #ffffff;
+    --text-heading:  #111c16;
+    --text-body:     #3d5247;
+    --text-muted:    #6b7f74;
+    --border-soft:   rgba(22, 96, 49, 0.1);
+    --border-card:   rgba(22, 96, 49, 0.09);
+    --shadow-sm:     0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md:     0 4px 16px rgba(0,0,0,0.10);
+    --shadow-lg:     0 8px 28px rgba(0,0,0,0.14);
+
+    --max-w:  1290px;
+    --pad:    28px;
+
+    --r-sm:   8px;
+    --r-md:   12px;
+    --r-lg:   18px;
+    --r-xl:   24px;
+    --r-full: 9999px;
+
+    --ease:  cubic-bezier(0.16, 1, 0.3, 1);
+    --fast:  200ms;
+    --slow:  320ms;
+}
+
+/* Ensure box-sizing on all footer elements and prevent page-level horizontal overflow */
+html, body {
+    overflow-x: hidden !important;
+}
+.footer, .footer * {
+    box-sizing: border-box !important;
+}
+
+/* Footer Container Styling overrides - Breakout to Full Viewport Width */
+.footer {
+    position: relative !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    clear: both;
+    margin-top: auto;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    left: calc((100% - 100vw) / 2) !important;
+    text-align: left;
+}
+
+/* Remove Kadence default footer spacing and borders globally */
+.site-footer-row-container,
+.site-footer-row-container-inner,
+.site-footer-row,
+.site-footer-row-layout-active,
+.footer-widget-area,
+.site-footer-row-layout-active > .theme-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.footer a { text-decoration: none; color: inherit; }
+.footer ul { list-style: none; padding: 0; margin: 0; }
+.footer img { max-width: 100%; display: block; }
+
+.footer .wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+}
+
+/* Accent Strip */
+.footer-accent {
+    height: 5px;
+    overflow: hidden;
+    position: relative;
+}
+.accent-gradient {
+    height: 100%;
+    background: linear-gradient(90deg,
+        var(--orange) 0%,
+        var(--yellow) 30%,
+        var(--blue)   55%,
+        var(--yellow) 75%,
+        var(--orange) 100%);
+    background-size: 300% 100%;
+    animation: footerShimmer 5s ease-in-out infinite;
+}
+@keyframes footerShimmer {
+    0%,100% { background-position: 200% 0; }
+    50%      { background-position:   0% 0; }
+}
+
+/* Footer Body */
+.footer-body {
+    background: var(--bg-footer);
+    padding: 60px 0 44px;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--border-soft);
+}
+
+.footer-body::before,
+.footer-body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+.footer-body::before {
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(22,96,49,0.05) 0%, transparent 70%);
+    top: -120px;
+    left: -100px;
+}
+.footer-body::after {
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(248,128,46,0.05) 0%, transparent 70%);
+    bottom: -80px;
+    right: -60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.9fr 1fr 1fr 1.45fr;
+    gap: 48px 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Brand Column */
+.f-brand { padding-right: 16px; }
+
+.f-logo {
+    display: inline-block;
+    margin-bottom: 18px;
+    transition: transform var(--slow) var(--ease);
+}
+.f-logo:hover { transform: scale(1.05) rotate(-1.5deg); }
+
+.logo-img {
+    height: 92px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 3px 10px rgba(0,0,0,0.13));
+    transition: filter var(--slow);
+}
+.f-logo:hover .logo-img {
+    filter: drop-shadow(0 6px 18px rgba(22,96,49,0.22));
+}
+
+.f-desc {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 22px;
+    max-width: 380px;
+}
+
+/* Social Icons */
+.f-socials {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.soc {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--bg-card);
+    color: var(--text-muted);
+    border: 1.5px solid var(--border-card);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--slow) var(--ease);
+    position: relative;
+    overflow: hidden;
+}
+.soc svg { transition: transform var(--fast) var(--ease); fill: currentColor; }
+.soc:hover {
+    transform: translateY(-4px) scale(1.1);
+    color: var(--white);
+    border-color: transparent;
+    box-shadow: var(--shadow-md);
+}
+.soc:hover svg { transform: scale(1.1); }
+
+#soc-yt:hover { background: #FF0000; }
+#soc-pin:hover { background: #E60023; }
+
+/* Column Title */
+.f-title {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 12px;
+}
+.f-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 28px; height: 3px;
+    border-radius: var(--r-full);
+    background: linear-gradient(90deg, var(--orange), var(--yellow));
+    transition: width var(--slow) var(--ease);
+}
+.f-col:hover .f-title::after { width: 44px; }
+
+/* Links */
+.f-links {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+.f-links li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 0.94rem;
+    font-weight: 450;
+    color: var(--text-body);
+    transition: all var(--fast) var(--ease);
+    position: relative;
+    padding: 1px 0;
+}
+.f-links li a::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-right: 1.5px solid var(--orange);
+    border-bottom: 1.5px solid var(--orange);
+    transform: rotate(-45deg);
+    flex-shrink: 0;
+    opacity: 0.45;
+    transition: all var(--fast) var(--ease);
+}
+.f-links li a:hover {
+    color: var(--green);
+    transform: translateX(7px);
+}
+.f-links li a:hover::before {
+    opacity: 1;
+    border-color: var(--green);
+    transform: rotate(-45deg) scale(1.25);
+}
+
+/* Contact Cards */
+.f-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ct-card {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 15px;
+    border-radius: var(--r-md);
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-card);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--slow) var(--ease);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.ct-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--orange);
+    transform: scaleY(0);
+    transition: transform var(--slow) var(--ease);
+    transform-origin: bottom;
+    border-radius: 0 2px 2px 0;
+}
+.ct-card:hover {
+    border-color: var(--orange-border);
+    background: linear-gradient(135deg, #fff 0%, #fff9f5 100%);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+.ct-card:hover::before { transform: scaleY(1); }
+
+.ct-icon {
+    width: 40px; height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--r-sm);
+    flex-shrink: 0;
+    transition: transform var(--slow) var(--ease);
+}
+.ct-card:hover .ct-icon { transform: scale(1.12) rotate(-5deg); }
+
+.ct-green  { background: rgba(22,96,49,0.08);   color: var(--green); }
+.ct-blue   { background: rgba(0,61,134,0.08);    color: var(--blue);  }
+.ct-amber  { background: rgba(248,128,46,0.10);  color: var(--orange); }
+
+.ct-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+.ct-body strong {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+.ct-body span:last-child {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    word-break: break-all;
+    transition: color var(--fast);
+}
+.ct-card:hover .ct-body span:last-child { color: var(--orange); }
+
+/* Disclaimer Strip */
+.footer-disc {
+    background: var(--bg-deep);
+    padding: 14px 0;
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.disc-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--orange-border);
+    border-left: 4px solid var(--orange);
+    border-radius: var(--r-md);
+    padding: 11px 18px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--slow);
+}
+.disc-box:hover { box-shadow: var(--shadow-md); }
+
+.disc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: var(--orange-bg);
+    border: 1px solid var(--orange-border);
+    border-radius: var(--r-full);
+    padding: 4px 11px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.disc-box p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    flex: 1;
+    margin: 0;
+}
+.disc-box p strong {
+    color: var(--text-heading);
+    font-weight: 700;
+}
+.disc-box p a {
+    color: var(--orange);
+    font-weight: 600;
+    border-bottom: 1px dotted rgba(248,128,46,0.45);
+    transition: all var(--fast);
+}
+.disc-box p a:hover {
+    color: var(--green);
+    border-bottom-style: solid;
+    border-bottom-color: var(--green);
+}
+
+/* Bottom Bar */
+.footer-bar {
+    background: var(--orange);
+    padding: 12px 0;
+    position: relative;
+    overflow: hidden;
+}
+.footer-bar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.bar-copy {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.88);
+    letter-spacing: 0.01em;
+    margin: 0;
+}
+.bar-copy strong {
+    color: var(--white);
+    font-weight: 700;
+}
+
+.bar-links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+}
+.bar-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.82);
+    padding: 4px 11px;
+    border-radius: var(--r-sm);
+    transition: all var(--fast) var(--ease);
+    position: relative;
+}
+.bar-links a:hover {
+    color: var(--white);
+    background: rgba(255,255,255,0.18);
+}
+.bar-links a + a::before {
+    content: '·';
+    position: absolute;
+    left: -3px;
+    color: rgba(255,255,255,0.35);
+    pointer-events: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 1100px) {
+    .footer-body { padding: 52px 0 40px; }
+    .footer-grid {
+        grid-template-columns: 1.6fr 1fr 1fr;
+        gap: 36px 32px;
+    }
+    .footer-grid .f-col:last-child {
+        grid-column: 1 / -1;
+    }
+    .f-contacts {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .ct-card {
+        flex: 1;
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 860px) {
+    .footer-body { padding: 44px 0 36px; }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 28px;
+    }
+    .f-brand {
+        grid-column: 1 / -1;
+        padding-right: 0;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 16px 24px;
+        align-items: start;
+    }
+    .f-logo { grid-row: 1 / 3; margin-bottom: 0; }
+    .f-desc { grid-column: 2; max-width: none; margin-bottom: 0; }
+    .f-socials { grid-column: 2; margin-top: 4px; }
+    .footer-grid .f-col:last-child {
+        grid-column: 1 / -1;
+    }
+    .f-contacts {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .ct-card {
+        flex: 1 1 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-body { padding: 40px 0 30px; }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .f-brand {
+        grid-column: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+    .f-logo { margin-bottom: 0; }
+    .logo-img { height: 70px; }
+    .f-desc { max-width: 100%; }
+    .footer-grid .f-col:last-child { grid-column: 1; }
+    .f-contacts {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .ct-card { flex: none; }
+    .disc-box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 18px;
+    }
+    .bar-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+    .bar-links {
+        justify-content: center;
+        gap: 8px 12px;
+    }
+    .bar-links a + a::before { display: none; }
+}
+
+@media (max-width: 420px) {
+    .footer-body { padding: 36px 0 24px; }
+    .logo-img { height: 60px; }
+    .f-title { font-size: 0.82rem; }
+    .f-links li a { font-size: 0.84rem; }
+    .disc-box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 14px 15px;
+    }
+    .disc-box p { font-size: 0.78rem; }
+    .soc { width: 36px; height: 36px; }
+    .bar-links a { font-size: 0.7rem; padding: 3px 7px; }
+}
+</style>
+
+<!-- ===================== CUSTOM FOOTER ===================== -->
+<footer class="footer" role="contentinfo" itemscope="" itemtype="https://schema.org/WPFooter">
+
+    <!-- Accent Strip -->
+    <div class="footer-accent" aria-hidden="true">
+        <div class="accent-gradient"></div>
+    </div>
+
+    <!-- ── Main Body ── -->
+    <div class="footer-body">
+        <div class="wrap">
+            <div class="footer-grid">
+
+                <!-- COL 1 — Brand -->
+                <div class="f-col f-brand">
+                    <a href="https://apnichatapnaghar.net.pk/" class="f-logo" id="footer-logo" aria-label="Apni Chhat Apna Ghar - Home">
+                        <img src="https://acag.punjab.gov.pk/images/ACAGLogoUrdu.png" alt="Apni Chhat Apna Ghar Logo" class="logo-img" width="110" height="92" loading="lazy">
+                    </a>
+                    <p class="f-desc">Pakistan's most comprehensive guide to housing schemes. Get complete information, free tools, and the latest updates on Apni Chhat Apna Ghar, Wazir-e-Azam Apna Ghar, and all other government housing programs.</p>
+                    <ul class="f-socials" aria-label="Social media links">
+                        <li>
+                            <a href="https://www.youtube.com/@ApniChatApnaGhar03" aria-label="Subscribe on YouTube" class="soc" id="soc-yt" target="_blank" rel="noopener noreferrer">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.pinterest.com/apnichatapnaghar03/" aria-label="Follow us on Pinterest" class="soc" id="soc-pin" target="_blank" rel="noopener noreferrer">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"></path></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- COL 2 — Quick Links -->
+                <nav class="f-col" aria-label="Quick Links">
+                    <h4 class="f-title">Quick Links</h4>
+                    <ul class="f-links">
+                        <li><a href="https://apnichatapnaghar.net.pk/">Home</a></li>
+                        <li><a href="https://apnichatapnaghar.net.pk/eligibility/">Eligibility Criteria</a></li>
+                        <li><a href="https://apnichatapnaghar.net.pk/apply-online/">How to Apply</a></li>
+                        <li><a href="https://apnichatapnaghar.net.pk/installment-plan/">Installment Plans</a></li>
+                        <li><a href="https://apnichatapnaghar.net.pk/status-check/">Track Application</a></li>
+                        <li><a href="https://apnichatapnaghar.net.pk/news/">News &amp; Updates</a></li>
+                    </ul>
+                </nav>
+
+                <!-- COL 3 — Information -->
+                <nav class="f-col" aria-label="Information">
+                    <h4 class="f-title">Information</h4>
+                    <ul class="f-links">
+                        <li><a href="https://apnichatapnaghar.net.pk/apni-chhat-apna-ghar/faqs/">FAQs</a></li>
+                        <li><a href="https://apnichatapnaghar.net.pk/apply-online/">ACAG Scheme Guide</a></li>
+                        <li><a href="https://apnichatapnaghar.net.pk/contact-us/">Contact Support</a></li>
+                    </ul>
+                </nav>
+
+                <!-- COL 4 — Contact Us -->
+                <div class="f-col">
+                    <h4 class="f-title">Contact Us</h4>
+                    <div class="f-contacts">
+                        <a href="tel:080009100" class="ct-card" id="ct-helpline">
+                            <span class="ct-icon ct-green" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>
+                            </span>
+                            <span class="ct-body">
+                                <strong>ACAG Helpline</strong>
+                                <span>0800‑09100</span>
+                            </span>
+                        </a>
+                        <a href="mailto:info@apnichatapnaghar.net.pk" class="ct-card" id="ct-email">
+                            <span class="ct-icon ct-blue" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M22 7l-10 7L2 7"></path></svg>
+                            </span>
+                            <span class="ct-body">
+                                <strong>Email Support</strong>
+                                <span>info@apnichatapnaghar.net.pk</span>
+                            </span>
+                        </a>
+                        <a href="https://acag.punjab.gov.pk" target="_blank" rel="noopener noreferrer" class="ct-card" id="ct-portal">
+                            <span class="ct-icon ct-amber" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 21v-6h6v6"></path></svg>
+                            </span>
+                            <span class="ct-body">
+                                <strong>Official Portal</strong>
+                                <span>acag.punjab.gov.pk</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <aside class="footer-disc" role="complementary" aria-label="Legal Disclaimer">
+        <div class="wrap">
+            <div class="disc-box">
+                <span class="disc-badge" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    Disclaimer
+                </span>
+                <p><strong>apnichatapnaghar.net.pk</strong> is an independent informational website — <strong>NOT</strong> affiliated with the Government of Punjab or any government body. We do <strong>NOT</strong> process applications or collect fees. All content is for <strong>educational purposes only</strong>. For official registration, visit the <a href="https://acag.punjab.gov.pk" target="_blank" rel="noopener noreferrer">official ACAG portal</a>.</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bar">
+        <div class="wrap">
+            <div class="bar-inner">
+                <p class="bar-copy">© <span id="custom-wp-year">2026</span> <strong>apnichatapnaghar.net.pk</strong> — All Rights Reserved.</p>
+                <nav class="bar-links" aria-label="Legal &amp; policy links">
+                    <a href="https://apnichatapnaghar.net.pk/about-us/">About Us</a>
+                    <a href="https://apnichatapnaghar.net.pk/contact-us/">Contact Us</a>
+                    <a href="https://apnichatapnaghar.net.pk/privacy-policy/">Privacy Policy</a>
+                    <a href="https://apnichatapnaghar.net.pk/terms-and-conditions/">Terms &amp; Conditions</a>
+                    <a href="https://apnichatapnaghar.net.pk/disclaimer/">Disclaimer</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<script>
+    // Dynamically update the copyright year in the widget footer
+    document.getElementById('custom-wp-year').textContent = new Date().getFullYear();
+</script>
