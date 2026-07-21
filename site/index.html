@@ -1,0 +1,1246 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- ============================================================
+APNI CHHAT APNA GHAR — COMPLETE HOMEPAGE (single file, PNP-style design)
+ApniChatApnaGhar.net.pk — independent information guide website.
+Sab kuch is EK file me: notice bar, hero, Urdu notice box, disclaimer,
+footer trust bar, Smart Eligibility Tool (full JS), guide sections,
+FAQs with accordion, JSON-LD schema.
+WordPress: ek hi Custom HTML block me paste karein, full width, no padding.
+Countdown: official CTA par 5s redirect + cancel. Standalone preview supported.
+Official portal: https://acag.punjab.gov.pk/
+============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ============ CSS Reset & Variables ============ */
+:root {
+  --font-title: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-urdu: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
+
+  /* Color Palette */
+  --color-navy-dark: #07172b;
+  --color-navy-medium: #0d233e;
+  --color-navy-light: #16365c;
+  --color-blue-primary: #0f4ec2;
+  --color-blue-hover: #0a3d9c;
+  --color-blue-sky: #eaf2ff;
+  --color-gold-accent: #e5a913;
+  --color-gold-light: #fef9c3;
+  --color-text-dark: #1e293b;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+
+  /* Badge Colors */
+  --color-green-icon: #22c55e;
+  --color-green-bg: #f0fdf4;
+  --color-red-icon: #ef4444;
+  --color-red-bg: #fef2f2;
+  --color-purple-icon: #a855f7;
+  --color-purple-bg: #faf5ff;
+
+  --container-max-width: 1280px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 24px rgba(7,23,43,0.12);
+  --shadow-hover: 0 20px 32px rgba(7,23,43,0.18);
+
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-full: 9999px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-dark);
+  background-color: #f8fafc;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1,h2,h3,h4,h5,h6 { font-family: var(--font-title); color: var(--color-navy-dark); font-weight: 700; line-height: 1.25; }
+a { text-decoration: none; color: inherit; transition: var(--transition-smooth); }
+.container { width: 100%; max-width: var(--container-max-width); margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+
+/* ============ 1. Top Notice Bar ============ */
+.notice-bar-wrapper { background-color: #f8fafc; padding-top: 14px; padding-bottom: 8px; }
+.top-notice-bar {
+  background-color: #020c1e; color: #fff; padding: 12px 60px 12px 24px;
+  border-top-left-radius: 28px; border-bottom-right-radius: 28px;
+  position: relative; overflow: hidden; max-width: 1200px; margin: 0 auto;
+  box-shadow: 0 8px 20px -4px rgba(2,12,30,0.25);
+}
+.notice-content { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
+.notice-left { display: flex; align-items: center; gap: 14px; flex: 1; }
+.notice-badge-white {
+  width: 44px; height: 44px; border-radius: 50%; background: #fff;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.notice-text { font-size: 13px; font-weight: 400; line-height: 1.45; color: rgba(255,255,255,0.95); }
+.notice-text strong { font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+.notice-link-gold { color: #fca511; font-weight: 700; }
+.notice-link-gold:hover { text-decoration: underline; color: #fbbf24; }
+.notice-divider { width: 1px; height: 38px; background: rgba(255,255,255,0.2); flex-shrink: 0; margin: 0 8px; }
+.notice-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.notice-date-circle {
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1.2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.04);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.notice-date-info { display: flex; flex-direction: column; line-height: 1.2; }
+.date-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.6); }
+.date-value { font-size: 14px; font-weight: 700; color: #fff; }
+.notice-gold-accent { position: absolute; right: 0; top: 0; bottom: 0; width: 8px; background: linear-gradient(180deg, #fca511, #e5a913); }
+@media (max-width: 860px) {
+  .top-notice-bar { padding: 12px 40px 12px 18px; border-top-left-radius: 18px; border-bottom-right-radius: 18px; }
+  .notice-divider, .notice-right { display: none; }
+}
+
+/* ============ 2. Hero Section ============ */
+.hero-section {
+  background:
+    radial-gradient(1000px 500px at 85% -10%, rgba(15,78,194,0.16), transparent 60%),
+    radial-gradient(700px 400px at -10% 110%, rgba(229,169,19,0.10), transparent 55%),
+    linear-gradient(180deg, #f8fafc 0%, #eef4ff 100%);
+  padding: 56px 0 64px;
+  border-bottom: 1px solid var(--color-border);
+}
+.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
+.hero-title { font-size: clamp(34px, 4.6vw, 56px); font-weight: 800; letter-spacing: -0.02em; }
+.text-blue-2026 { color: var(--color-blue-primary); }
+.title-divider-gold { width: 88px; height: 5px; border-radius: var(--border-radius-full); background: linear-gradient(90deg, var(--color-gold-accent), #fca511); margin: 18px 0; }
+.hero-subtitle { font-size: clamp(17px, 2vw, 22px); font-weight: 600; color: var(--color-navy-light); margin-bottom: 18px; }
+.urdu-notice-box {
+  background: #fffdf3; border: 1px solid #f3e3ac; border-right: 5px solid var(--color-gold-accent);
+  border-radius: var(--border-radius-md); padding: 16px 18px; margin-bottom: 26px;
+  direction: rtl; text-align: right;
+}
+.urdu-notice-box p { font-family: var(--font-urdu); font-size: 15px; line-height: 2.3; color: #5b4a12; }
+.urdu-notice-box a { color: var(--color-blue-primary); font-weight: 700; direction: ltr; unicode-bidi: embed; }
+.urdu-notice-box a:hover { text-decoration: underline; }
+
+.features-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 28px; }
+.feature-card {
+  display: flex; align-items: flex-start; gap: 12px; background: #fff;
+  border: 1px solid var(--color-border); border-radius: var(--border-radius-md);
+  padding: 14px 16px; box-shadow: var(--shadow-sm); transition: var(--transition-smooth);
+}
+.feature-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: #c7d8f7; }
+.feature-icon-wrapper {
+  width: 40px; height: 40px; border-radius: 10px; background: var(--color-blue-sky);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.feature-info h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 2px; }
+.feature-info p { font-size: 12.5px; color: var(--color-text-muted); line-height: 1.45; }
+
+.cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 560px; }
+.btn-primary {
+  display: flex; align-items: center; gap: 14px;
+  background: linear-gradient(135deg, var(--color-blue-primary), #0a3d9c);
+  color: #fff; padding: 16px 22px; border-radius: var(--border-radius-md);
+  box-shadow: 0 10px 22px -6px rgba(15,78,194,0.5); position: relative; overflow: hidden;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -6px rgba(15,78,194,0.55); }
+.btn-icon-left {
+  width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.16);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.btn-primary-left { display: flex; flex-direction: column; text-align: left; }
+.btn-title { font-family: var(--font-title); font-size: 16px; font-weight: 700; line-height: 1.3; }
+.btn-subtitle { font-size: 12px; color: rgba(255,255,255,0.75); }
+.btn-secondary {
+  display: flex; align-items: center; gap: 12px; background: #fff;
+  border: 1.5px solid #d6e2f7; color: var(--color-navy-dark);
+  padding: 13px 18px; border-radius: var(--border-radius-md); font-weight: 600; font-size: 14.5px;
+}
+.btn-secondary:hover { border-color: var(--color-blue-primary); background: var(--color-blue-sky); transform: translateY(-2px); }
+.btn-sec-icon { width: 34px; height: 34px; border-radius: 9px; background: var(--color-blue-sky); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.btn-sec-text { flex: 1; }
+.btn-arrow { color: var(--color-blue-primary); font-weight: 800; }
+
+.hero-visual { display: flex; justify-content: center; }
+.hero-card-stack { position: relative; width: 100%; max-width: 420px; }
+.hero-main-card {
+  background: linear-gradient(160deg, var(--color-navy-dark), var(--color-navy-light));
+  border-radius: 22px; padding: 30px 26px; color: #fff;
+  box-shadow: var(--shadow-hover); position: relative; overflow: hidden;
+}
+.hero-main-card::after {
+  content: ""; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px;
+  border-radius: 50%; background: radial-gradient(circle, rgba(229,169,19,0.25), transparent 70%);
+}
+.hmc-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(229,169,19,0.15); border: 1px solid rgba(229,169,19,0.4); color: #fbbf24; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 12px; border-radius: var(--border-radius-full); margin-bottom: 18px; }
+.hmc-amount { font-family: var(--font-title); font-size: 44px; font-weight: 800; line-height: 1.1; }
+.hmc-amount span { font-size: 18px; font-weight: 600; color: rgba(255,255,255,0.7); }
+.hmc-label { font-size: 13.5px; color: rgba(255,255,255,0.75); margin: 6px 0 20px; }
+.hmc-divider { height: 1px; background: rgba(255,255,255,0.14); margin: 18px 0; }
+.hmc-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; position: relative; z-index: 1; }
+.hmc-stat { text-align: center; }
+.hmc-stat b { display: block; font-family: var(--font-title); font-size: 19px; font-weight: 800; color: #fff; }
+.hmc-stat small { font-size: 10.5px; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.05em; }
+.hero-badge-float {
+  position: absolute; bottom: -18px; left: -14px; background: #fff; border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg); padding: 12px 16px; display: flex; align-items: center; gap: 10px;
+}
+.hero-badge-float .hbf-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--color-green-bg); display: flex; align-items: center; justify-content: center; }
+.hero-badge-float b { display: block; font-size: 13.5px; color: var(--color-navy-dark); }
+.hero-badge-float small { font-size: 11px; color: var(--color-text-muted); }
+@media (max-width: 980px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-visual { order: -1; display: none; }
+  .features-row { grid-template-columns: 1fr; }
+}
+
+/* ============ 3. Disclaimer Section ============ */
+.disclaimer-section { padding: 40px 0; background: #f8fafc; }
+.disclaimer-card-wrapper {
+  background: #fff; border: 1px solid var(--color-border); border-radius: var(--border-radius-lg);
+  padding: 28px 30px; box-shadow: var(--shadow-md); max-width: 1200px;
+}
+.disclaimer-top-row { display: flex; gap: 18px; align-items: flex-start; }
+.disclaimer-badge {
+  width: 58px; height: 58px; border-radius: var(--border-radius-md); flex-shrink: 0;
+  background: var(--color-gold-light); border: 1px solid #f3e3ac;
+  display: flex; align-items: center; justify-content: center;
+}
+.disclaimer-heading { font-size: 19px; margin-bottom: 6px; }
+.disclaimer-desc { font-size: 14px; color: var(--color-text-muted); line-height: 1.7; }
+.disclaimer-desc a { color: var(--color-blue-primary); font-weight: 700; }
+.disclaimer-desc a:hover { text-decoration: underline; }
+.disclaimer-horizontal-divider { height: 1px; background: var(--color-border); margin: 22px 0; }
+.disclaimer-bottom-row { display: flex; gap: 0; align-items: stretch; }
+.disclaimer-col { flex: 1; display: flex; gap: 12px; align-items: flex-start; padding: 0 18px; }
+.disclaimer-col:first-child { padding-left: 0; }
+.disclaimer-divider { width: 1px; background: var(--color-border); flex-shrink: 0; }
+.trust-col-icon { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.trust-col-icon.info-circle { background: var(--color-blue-primary); }
+.trust-col-icon.govt-building { background: var(--color-green-bg); border: 1px solid #bbe7cd; }
+.trust-col-icon.no-fake { background: var(--color-green-icon); }
+.trust-col-icon.no-pay { background: var(--color-red-icon); }
+.trust-col-content h4 { font-size: 12px; letter-spacing: 0.06em; margin-bottom: 2px; }
+.trust-col-sub { font-size: 11px; color: var(--color-gold-accent); font-weight: 700; display: block; margin-bottom: 3px; }
+.trust-col-content p { font-size: 12.5px; color: var(--color-text-muted); line-height: 1.5; }
+@media (max-width: 900px) {
+  .disclaimer-bottom-row { flex-direction: column; gap: 16px; }
+  .disclaimer-col { padding: 0; }
+  .disclaimer-divider { display: none; }
+}
+
+/* ============ 4. Footer Trust Bar ============ */
+.footer-trust-wrapper { background: #f8fafc; padding: 6px 0 34px; }
+.footer-trust-bar {
+  max-width: 1200px; margin: 0 auto; background: var(--color-navy-dark);
+  border-radius: var(--border-radius-lg); padding: 20px 28px;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  box-shadow: var(--shadow-lg);
+}
+.footer-trust-item { display: flex; align-items: center; gap: 12px; }
+.footer-trust-icon, .footer-icon-circle-gold, .footer-icon-square-gold {
+  width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.footer-trust-icon { border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); }
+.footer-icon-circle-gold { border-radius: 50%; background: rgba(229,169,19,0.16); border: 1px solid rgba(229,169,19,0.45); }
+.footer-icon-square-gold { border-radius: 10px; background: rgba(229,169,19,0.16); border: 1px solid rgba(229,169,19,0.45); }
+.footer-trust-text b { display: block; color: #fff; font-size: 13px; font-family: var(--font-title); }
+.footer-trust-text small { color: rgba(255,255,255,0.6); font-size: 11px; }
+.footer-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.14); flex-shrink: 0; }
+@media (max-width: 1024px) {
+  .footer-trust-bar { flex-wrap: wrap; gap: 18px; justify-content: flex-start; }
+  .footer-divider { display: none; }
+}
+
+/* ============ 5. Smart Tool (Eligibility Wizard) ============ */
+.smart-tool-section { padding: 60px 0; background: linear-gradient(180deg, #eef4ff 0%, #f8fafc 100%); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+.smart-tool-card {
+  max-width: 860px; margin: 0 auto; background: #fff; border: 1px solid var(--color-border);
+  border-radius: 20px; box-shadow: var(--shadow-lg); overflow: hidden;
+}
+.st-head { background: linear-gradient(135deg, var(--color-navy-dark), var(--color-navy-light)); color: #fff; padding: 26px 30px; }
+.st-head-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fbbf24; margin-bottom: 8px; }
+.st-head h2 { color: #fff; font-size: clamp(20px, 2.6vw, 27px); }
+.st-head p { color: rgba(255,255,255,0.75); font-size: 13.5px; margin-top: 6px; }
+.st-progress { height: 6px; background: #e8eef8; }
+.st-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--color-gold-accent), #fca511); transition: width 0.4s ease; }
+.st-body { padding: 30px; min-height: 300px; }
+.st-step { display: none; animation: stFade 0.35s ease; }
+.st-step.active { display: block; }
+@keyframes stFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.st-q-count { font-size: 12px; font-weight: 700; color: var(--color-blue-primary); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+.st-question { font-size: clamp(18px, 2.2vw, 23px); margin-bottom: 6px; }
+.st-hint { font-size: 13.5px; color: var(--color-text-muted); margin-bottom: 20px; }
+.st-options { display: grid; gap: 12px; }
+.st-option {
+  display: flex; align-items: center; gap: 14px; border: 1.5px solid var(--color-border);
+  border-radius: var(--border-radius-md); padding: 15px 18px; cursor: pointer;
+  background: #fff; transition: var(--transition-smooth); text-align: left; width: 100%; font-family: var(--font-body); font-size: 15px; color: var(--color-text-dark);
+}
+.st-option:hover { border-color: var(--color-blue-primary); background: var(--color-blue-sky); transform: translateY(-2px); }
+.st-option .st-opt-icon { width: 36px; height: 36px; border-radius: 9px; background: var(--color-blue-sky); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.st-option b { display: block; font-size: 15px; }
+.st-option small { font-size: 12.5px; color: var(--color-text-muted); }
+.st-back-row { margin-top: 22px; }
+.st-back-btn { background: none; border: none; color: var(--color-text-muted); font-size: 13px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-body); }
+.st-back-btn:hover { color: var(--color-blue-primary); }
+.st-result { display: none; text-align: center; padding: 10px 0; animation: stFade 0.4s ease; }
+.st-result.active { display: block; }
+.st-result-icon { width: 74px; height: 74px; border-radius: 50%; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; }
+.st-result-icon.ok { background: var(--color-green-bg); border: 2px solid #bbe7cd; }
+.st-result-icon.warn { background: var(--color-gold-light); border: 2px solid #f3e3ac; }
+.st-result-icon.no { background: var(--color-red-bg); border: 2px solid #f6c9c9; }
+.st-result h3 { font-size: 23px; margin-bottom: 8px; }
+.st-result p { font-size: 14.5px; color: var(--color-text-muted); max-width: 560px; margin: 0 auto 20px; line-height: 1.7; }
+.st-result-checks { max-width: 520px; margin: 0 auto 24px; text-align: left; display: grid; gap: 8px; }
+.st-check-line { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--border-radius-sm); padding: 10px 14px; }
+.st-check-line.bad { background: var(--color-red-bg); border-color: #f6c9c9; }
+.st-restart { margin-top: 14px; background: none; border: none; color: var(--color-blue-primary); font-weight: 700; font-size: 13.5px; cursor: pointer; font-family: var(--font-body); }
+.st-restart:hover { text-decoration: underline; }
+
+/* ============ 6. Guide Sections ============ */
+.guide-wrap { padding: 64px 0 30px; }
+.guide-header { max-width: 780px; margin: 0 auto 46px; text-align: center; }
+.guide-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: var(--color-blue-sky); color: var(--color-blue-primary); font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 14px; border-radius: var(--border-radius-full); margin-bottom: 14px; }
+.guide-header h2 { font-size: clamp(26px, 3.4vw, 38px); margin-bottom: 12px; }
+.guide-header p { color: var(--color-text-muted); font-size: 15.5px; }
+.guide-section { max-width: 900px; margin: 0 auto 26px; background: #fff; border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); padding: 30px 34px; box-shadow: var(--shadow-sm); scroll-margin-top: 24px; }
+.guide-section:hover { box-shadow: var(--shadow-md); }
+.gs-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.gs-num { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(135deg, var(--color-blue-primary), #0a3d9c); color: #fff; font-family: var(--font-title); font-weight: 800; font-size: 17px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 6px 14px -4px rgba(15,78,194,0.5); }
+.guide-section h2.gs-title { font-size: clamp(20px, 2.4vw, 25px); }
+.guide-section p { font-size: 14.8px; color: #384352; line-height: 1.8; margin-bottom: 12px; }
+.guide-section p:last-child { margin-bottom: 0; }
+.guide-section ul, .guide-section ol { margin: 4px 0 14px 22px; }
+.guide-section li { font-size: 14.5px; color: #384352; line-height: 1.8; margin-bottom: 7px; }
+.guide-section li::marker { color: var(--color-blue-primary); font-weight: 700; }
+.gs-table-wrap { overflow-x: auto; margin: 14px 0; border: 1px solid var(--color-border); border-radius: var(--border-radius-md); }
+.gs-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 520px; }
+.gs-table th { background: var(--color-navy-dark); color: #fff; text-align: left; padding: 12px 16px; font-family: var(--font-title); font-weight: 600; font-size: 13px; letter-spacing: 0.03em; }
+.gs-table td { padding: 12px 16px; border-top: 1px solid var(--color-border); color: #384352; }
+.gs-table tr:nth-child(even) td { background: #f8fafc; }
+.gs-callout { display: flex; gap: 12px; align-items: flex-start; border-radius: var(--border-radius-md); padding: 15px 18px; margin: 16px 0; font-size: 13.8px; line-height: 1.7; }
+.gs-callout.blue { background: var(--color-blue-sky); border: 1px solid #c7d8f7; color: #1e3a6e; }
+.gs-callout.gold { background: var(--color-gold-light); border: 1px solid #f3e3ac; color: #5b4a12; }
+.gs-callout.red { background: var(--color-red-bg); border: 1px solid #f6c9c9; color: #7f1d1d; }
+.gs-callout svg { flex-shrink: 0; margin-top: 2px; }
+.gs-steps { counter-reset: step; display: grid; gap: 12px; margin: 14px 0; }
+.gs-step-item { display: flex; gap: 14px; align-items: flex-start; background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--border-radius-md); padding: 15px 18px; }
+.gs-step-num { width: 30px; height: 30px; border-radius: 50%; background: var(--color-gold-accent); color: #07172b; font-family: var(--font-title); font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.gs-step-item b { display: block; font-size: 14.5px; color: var(--color-navy-dark); margin-bottom: 2px; }
+.gs-step-item p { font-size: 13.5px; margin: 0; }
+
+/* ============ 7. FAQ ============ */
+.faq-section { padding: 30px 0 64px; }
+.faq-list { max-width: 900px; margin: 0 auto; display: grid; gap: 12px; }
+.faq-item { background: #fff; border: 1px solid var(--color-border); border-radius: var(--border-radius-md); overflow: hidden; transition: var(--transition-smooth); }
+.faq-item.open { border-color: #c7d8f7; box-shadow: var(--shadow-md); }
+.faq-q { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 17px 22px; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font-title); font-size: 15.5px; font-weight: 600; color: var(--color-navy-dark); }
+.faq-q:hover { color: var(--color-blue-primary); }
+.faq-chevron { width: 28px; height: 28px; border-radius: 50%; background: var(--color-blue-sky); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: var(--transition-smooth); }
+.faq-item.open .faq-chevron { transform: rotate(180deg); background: var(--color-blue-primary); }
+.faq-item.open .faq-chevron svg { stroke: #fff; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.faq-a-inner { padding: 0 22px 18px; font-size: 14.2px; color: #384352; line-height: 1.8; }
+
+/* ============ 8. CTA Band + Footer ============ */
+.cta-band-section { padding: 20px 0 64px; }
+.cta-band {
+  max-width: 1100px; margin: 0 auto; border-radius: 24px; padding: 46px 40px;
+  background: linear-gradient(135deg, var(--color-navy-dark) 0%, var(--color-navy-light) 70%, #1d4a86 100%);
+  color: #fff; text-align: center; position: relative; overflow: hidden; box-shadow: var(--shadow-hover);
+}
+.cta-band::before { content: ""; position: absolute; top: -80px; left: -80px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(229,169,19,0.22), transparent 70%); }
+.cta-band h2 { color: #fff; font-size: clamp(24px, 3vw, 34px); margin-bottom: 12px; position: relative; }
+.cta-band p { color: rgba(255,255,255,0.78); font-size: 15px; max-width: 620px; margin: 0 auto 26px; position: relative; }
+.cta-band .btn-primary { display: inline-flex; margin: 0 auto; background: linear-gradient(135deg, var(--color-gold-accent), #fca511); color: #07172b; box-shadow: 0 12px 26px -6px rgba(229,169,19,0.55); position: relative; }
+.cta-band .btn-primary .btn-subtitle { color: rgba(7,23,43,0.65); }
+.cta-band .btn-primary .btn-icon-left { background: rgba(7,23,43,0.12); }
+
+.main-footer { background: #020c1e; color: rgba(255,255,255,0.7); padding: 46px 0 30px; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; margin-bottom: 30px; }
+.footer-brand h3 { color: #fff; font-size: 20px; margin-bottom: 10px; }
+.footer-brand h3 span { color: var(--color-gold-accent); }
+.footer-brand p { font-size: 13px; line-height: 1.75; }
+.footer-col h4 { color: #fff; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 9px; }
+.footer-col a { font-size: 13.5px; color: rgba(255,255,255,0.65); }
+.footer-col a:hover { color: var(--color-gold-accent); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
+.footer-bottom p { font-size: 12px; }
+.footer-bottom a { color: var(--color-gold-accent); font-weight: 600; }
+@media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
+
+/* Countdown status pill */
+.pcc-official-countdown-cancel {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 8px;
+  background: var(--color-red-bg); color: #b91c1c; border: 1px solid #f6c9c9;
+  font-family: var(--font-body); font-size: 12.5px; font-weight: 700;
+  padding: 7px 14px; border-radius: var(--border-radius-full); cursor: pointer;
+}
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>
+
+<div id="acag-home">
+
+  <!-- 1. Top Notice Bar -->
+  <div class="notice-bar-wrapper">
+    <div class="top-notice-bar">
+      <div class="notice-content">
+        <div class="notice-left">
+          <div class="notice-badge-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f4ec2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="notice-text">
+            <strong>REGISTRATION UPDATE:</strong> Apni Chhat Apna Ghar (construction loan) applications are accepted on a rolling basis. Official registration is only at <a class="notice-link-gold" href="https://acag.punjab.gov.pk/" target="_blank" rel="noopener noreferrer">acag.punjab.gov.pk</a> — always verify before applying.
+          </div>
+        </div>
+        <div class="notice-divider"></div>
+        <div class="notice-right">
+          <div class="notice-date-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          </div>
+          <div class="notice-date-info">
+            <span class="date-label">Guide Updated</span>
+            <span class="date-value">July 2026</span>
+          </div>
+        </div>
+      </div>
+      <div class="notice-gold-accent"></div>
+    </div>
+  </div>
+
+  <!-- 2. Hero Section -->
+  <header class="hero-section" id="hero-section">
+    <div class="container hero-grid">
+
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Apni Chhat Apna Ghar <br>
+          Online Registration <span class="text-blue-2026">2026</span>
+        </h1>
+
+        <div class="title-divider-gold"></div>
+
+        <h2 class="hero-subtitle">Eligibility, Documents, Loan Details &amp; Apply Guide</h2>
+
+        <div class="urdu-notice-box">
+          <p>
+            یہ ویب سائٹ صرف ایک آزاد معلوماتی گائیڈ ہے۔ ہم اہلیت، دستاویزات، قرض کی تفصیلات اور درخواست کے مراحل آسان الفاظ میں سمجھاتے ہیں؛ تمام سرکاری رجسٹریشن اور درخواستیں صرف <a href="https://acag.punjab.gov.pk/" target="_blank" rel="noopener noreferrer">acag.punjab.gov.pk</a> پر ہوتی ہیں۔
+          </p>
+        </div>
+
+        <div class="features-row">
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f4ec2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+            </div>
+            <div class="feature-info">
+              <h3>Clear Information</h3>
+              <p>Simple and easy to follow guide</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f4ec2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2c.57.14.76.69.76 1.23v6.77Z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div class="feature-info">
+              <h3>Accurate &amp; Updated</h3>
+              <p>Fact-checked information</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f4ec2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><path d="m12 2-8 5v2h16V7Z"/></svg>
+            </div>
+            <div class="feature-info">
+              <h3>Official Portal Redirect</h3>
+              <p>Registration only at acag.punjab.gov.pk</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f4ec2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2c.57.14.76.69.76 1.23v6.77Z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+            </div>
+            <div class="feature-info">
+              <h3>No Fake Information</h3>
+              <p>Strict policy against misleading info.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-group">
+          <div class="acag-official-countdown" data-acag-countdown-state="idle">
+            <a data-acag-official-portal-link="true" data-acag-countdown-seconds="5" aria-describedby="acag-cd-status" href="https://acag.punjab.gov.pk/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+              <span class="btn-icon-left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </span>
+              <div class="btn-primary-left">
+                <span class="btn-title acag-official-countdown-label">Continue to Official ACAG Portal</span>
+                <span class="btn-subtitle">You will be redirected to acag.punjab.gov.pk</span>
+              </div>
+            </a>
+            <span id="acag-cd-status" class="acag-official-countdown-status sr-only" role="status" aria-live="polite" aria-atomic="true"></span>
+          </div>
+
+          <a href="#acag-guide" class="btn-secondary">
+            <span class="btn-sec-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f4ec2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </span>
+            <span class="btn-sec-text">Read Information Guide</span>
+            <span class="btn-arrow">&gt;</span>
+          </a>
+
+          <a href="#acag-smart-tool" class="btn-secondary">
+            <span class="btn-sec-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f4ec2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2c.57.14.76.69.76 1.23v6.77Z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+            <span class="btn-sec-text">Check Eligibility Tool</span>
+            <span class="btn-arrow">&gt;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Visual -->
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <div class="hero-main-card">
+            <span class="hmc-eyebrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              Interest-Free Housing Loan
+            </span>
+            <div class="hmc-amount">Rs. 15 <span>Lakh</span></div>
+            <p class="hmc-label">Maximum construction loan — 100% markup free</p>
+            <div class="hmc-divider"></div>
+            <div class="hmc-stats">
+              <div class="hmc-stat"><b>~7 Yrs</b><small>Repayment</small></div>
+              <div class="hmc-stat"><b>3 Mo</b><small>Grace Period</small></div>
+              <div class="hmc-stat"><b>1 Lakh</b><small>Target Homes</small></div>
+            </div>
+          </div>
+          <div class="hero-badge-float">
+            <div class="hbf-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <div>
+              <b>Apply Online with CNIC</b>
+              <small>Free registration — no agent needed</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 3. Disclaimer Section -->
+  <section class="disclaimer-section" id="disclaimer-section">
+    <div class="container disclaimer-card-wrapper">
+      <div class="disclaimer-top-row">
+        <div class="disclaimer-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#041633" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2c.57.14.76.69.76 1.23v6.77Z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <div class="disclaimer-top-text">
+          <h3 class="disclaimer-heading">Important Disclaimer</h3>
+          <p class="disclaimer-desc">
+            ApniChatApnaGhar.net.pk is an independent information website. It is not connected with, endorsed by, or operated by the Government of Punjab, PHATA (Punjab Housing &amp; Town Planning Agency), the Bank of Punjab, or any government agency. We do not issue loans, accept payments, collect application credentials, or influence approvals. The only official government portal for Apni Chhat Apna Ghar registration is <a href="https://acag.punjab.gov.pk/" target="_blank" rel="noopener noreferrer">https://acag.punjab.gov.pk/</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="disclaimer-horizontal-divider"></div>
+
+      <div class="disclaimer-bottom-row">
+        <div class="disclaimer-col">
+          <div class="trust-col-icon info-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          </div>
+          <div class="trust-col-content">
+            <h4>INFO ONLY</h4>
+            <span class="trust-col-sub">Guide only</span>
+            <p>We provide clear information in simple words.</p>
+          </div>
+        </div>
+
+        <div class="disclaimer-divider"></div>
+
+        <div class="disclaimer-col">
+          <div class="trust-col-icon govt-building">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0d8a43" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><path d="m12 2-8 5v2h16V7Z"/></svg>
+          </div>
+          <div class="trust-col-content">
+            <h4>GOVT PORTAL REDIRECT</h4>
+            <p class="mt-desc">You will be redirected only to the official portal.</p>
+          </div>
+        </div>
+
+        <div class="disclaimer-divider"></div>
+
+        <div class="disclaimer-col">
+          <div class="trust-col-icon no-fake">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2c.57.14.76.69.76 1.23v6.77Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <div class="trust-col-content">
+            <h4>NO FAKE INFO</h4>
+            <p>Strict policy against misleading claims.</p>
+          </div>
+        </div>
+
+        <div class="disclaimer-divider"></div>
+
+        <div class="disclaimer-col">
+          <div class="trust-col-icon no-pay">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>
+          </div>
+          <div class="trust-col-content">
+            <h4>NO PAYMENTS HERE</h4>
+            <p>We never ask for fees, OTPs, or bank details.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Footer Trust Bar -->
+  <div class="footer-trust-wrapper">
+    <footer class="footer-trust-bar" id="footer-trust-bar">
+      <div class="footer-trust-item">
+        <div class="footer-trust-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+        </div>
+        <div class="footer-trust-text"><b>Free Guide</b><small>No charges, ever</small></div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-trust-item">
+        <div class="footer-icon-circle-gold">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e5a913" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><path d="m12 2-8 5v2h16V7Z"/></svg>
+        </div>
+        <div class="footer-trust-text"><b>Official Portal Links</b><small>acag.punjab.gov.pk only</small></div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-trust-item">
+        <div class="footer-trust-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2c.57.14.76.69.76 1.23v6.77Z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <div class="footer-trust-text"><b>Fact-Checked</b><small>Updated July 2026</small></div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-trust-item">
+        <div class="footer-icon-square-gold">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e5a913" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="footer-trust-text"><b>100,000 Homes Target</b><small>CM Punjab initiative</small></div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-trust-item">
+        <div class="footer-trust-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>
+        </div>
+        <div class="footer-trust-text"><b>No Agents / No Fees</b><small>Apply yourself for free</small></div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- 5. Smart Eligibility Tool -->
+  <section class="smart-tool-section" id="acag-smart-tool" aria-labelledby="acag-tool-title">
+    <div class="container">
+      <div class="smart-tool-card">
+        <div class="st-head">
+          <span class="st-head-eyebrow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2c.57.14.76.69.76 1.23v6.77Z"/><path d="m9 12 2 2 4-4"/></svg>
+            Smart Tool
+          </span>
+          <h2 id="acag-tool-title">Apni Chhat Apna Ghar — Eligibility Readiness Checker</h2>
+          <p>Answer 5 quick questions and see whether you meet the basic conditions before you open the official portal. Nothing is saved — this is only a guide.</p>
+        </div>
+        <div class="st-progress"><div class="st-progress-fill" id="stProgressFill"></div></div>
+        <div class="st-body" id="stBody">
+
+          <div class="st-step active" data-step="1">
+            <div class="st-q-count">Question 1 of 5</div>
+            <h3 class="st-question">Are you a permanent resident of Punjab?</h3>
+            <p class="st-hint">Your CNIC address should show a Punjab district. The scheme is only for residents of Punjab province.</p>
+            <div class="st-options">
+              <button class="st-option" data-answer="yes"><span class="st-opt-icon">✅</span><span><b>Yes, my CNIC shows a Punjab address</b><small>Permanent resident of Punjab</small></span></button>
+              <button class="st-option" data-answer="no"><span class="st-opt-icon">❌</span><span><b>No, I live in another province</b><small>CNIC address is outside Punjab</small></span></button>
+            </div>
+          </div>
+
+          <div class="st-step" data-step="2">
+            <div class="st-q-count">Question 2 of 5</div>
+            <h3 class="st-question">Are you the head of your family as per NADRA record?</h3>
+            <p class="st-hint">Only the head of family (as recorded by NADRA) can apply for the household.</p>
+            <div class="st-options">
+              <button class="st-option" data-answer="yes"><span class="st-opt-icon">✅</span><span><b>Yes, I am the family head</b><small>As per NADRA family record</small></span></button>
+              <button class="st-option" data-answer="no"><span class="st-opt-icon">❌</span><span><b>No / I'm not sure</b><small>Someone else is the registered head</small></span></button>
+            </div>
+          </div>
+
+          <div class="st-step" data-step="3">
+            <div class="st-q-count">Question 3 of 5</div>
+            <h3 class="st-question">Do you own a plot within the size limit?</h3>
+            <p class="st-hint">Urban areas: up to 5 Marla. Rural areas: up to 10 Marla. The plot should be in your own (or family head's) name with proof like Fard or registry.</p>
+            <div class="st-options">
+              <button class="st-option" data-answer="yes"><span class="st-opt-icon">🏠</span><span><b>Yes — urban plot up to 5 Marla</b><small>With Fard / registry / allotment proof</small></span></button>
+              <button class="st-option" data-answer="yes"><span class="st-opt-icon">🌾</span><span><b>Yes — rural plot up to 10 Marla</b><small>With Fard / registry / allotment proof</small></span></button>
+              <button class="st-option" data-answer="no"><span class="st-opt-icon">❌</span><span><b>No, I don't own a plot</b><small>Or plot is larger than the limit</small></span></button>
+            </div>
+          </div>
+
+          <div class="st-step" data-step="4">
+            <div class="st-q-count">Question 4 of 5</div>
+            <h3 class="st-question">Is your household registered in NSER with a PMT score of 60 or less?</h3>
+            <p class="st-hint">NSER is the National Socio-Economic Registry (BISP survey). A PMT (Poverty Means Test) score of 60 or below is required.</p>
+            <div class="st-options">
+              <button class="st-option" data-answer="yes"><span class="st-opt-icon">✅</span><span><b>Yes, PMT is 60 or less</b><small>Registered in NSER survey</small></span></button>
+              <button class="st-option" data-answer="unsure"><span class="st-opt-icon">❓</span><span><b>I don't know my PMT score</b><small>Never checked NSER registration</small></span></button>
+              <button class="st-option" data-answer="no"><span class="st-opt-icon">❌</span><span><b>No, PMT is above 60</b><small>Or not registered in NSER</small></span></button>
+            </div>
+          </div>
+
+          <div class="st-step" data-step="5">
+            <div class="st-q-count">Question 5 of 5</div>
+            <h3 class="st-question">Are you clear of loan default and criminal record?</h3>
+            <p class="st-hint">Applicants must not be defaulters of any bank/financial institution and must have a clean record.</p>
+            <div class="st-options">
+              <button class="st-option" data-answer="yes"><span class="st-opt-icon">✅</span><span><b>Yes, no default and clean record</b><small>No pending bank default</small></span></button>
+              <button class="st-option" data-answer="no"><span class="st-opt-icon">❌</span><span><b>No, there is a default / record issue</b><small>Unresolved default or case</small></span></button>
+            </div>
+          </div>
+
+          <div class="st-result" id="stResult"></div>
+
+          <div class="st-back-row" id="stBackRow" style="display:none;">
+            <button class="st-back-btn" id="stBackBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+              Back to previous question
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Guide Sections -->
+  <div class="guide-wrap" id="acag-guide">
+    <div class="container">
+
+      <div class="guide-header">
+        <span class="guide-eyebrow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0f4ec2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Complete Information Guide
+        </span>
+        <h2>Everything About Apni Chhat Apna Ghar — In Simple Words</h2>
+        <p>Eligibility, documents, loan details, application steps, and status checking — explained clearly so you can apply confidently on the official portal.</p>
+      </div>
+
+      <section class="guide-section" id="acag-meaning">
+        <div class="gs-head"><div class="gs-num">1</div><h2 class="gs-title">What is the Apni Chhat Apna Ghar Program?</h2></div>
+        <p><strong>Apni Chhat Apna Ghar</strong> (اپنی چھت اپنا گھر — "Your Roof, Your Home") is a flagship housing initiative of the Chief Minister of Punjab. Its goal is simple: help low-income families of Punjab who own a small plot but cannot afford construction, so they can finally build a house of their own instead of living on rent or in informal settlements.</p>
+        <p>Under the program, the Punjab Government provides an <strong>interest-free (markup-free) construction loan of up to Rs. 15 lakh (PKR 1.5 million)</strong>. The program targets <strong>100,000 houses/apartments</strong> across the province and is executed by <strong>PHATA</strong> — the Punjab Housing &amp; Town Planning Agency.</p>
+        <div class="gs-callout blue">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1e3a6e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <span><strong>Key point:</strong> This is a loan, not a grant — you repay it in easy monthly installments, but you pay <em>zero interest/markup</em>. The government bears the financial cost.</span>
+        </div>
+      </section>
+
+      <section class="guide-section" id="acag-benefits">
+        <div class="gs-head"><div class="gs-num">2</div><h2 class="gs-title">Key Benefits at a Glance</h2></div>
+        <div class="gs-table-wrap">
+          <table class="gs-table">
+            <tr><th>Feature</th><th>Detail</th></tr>
+            <tr><td>Loan amount</td><td>Up to Rs. 1,500,000 (15 lakh) for house construction</td></tr>
+            <tr><td>Interest / markup</td><td>0% — completely interest-free for the applicant</td></tr>
+            <tr><td>Repayment period</td><td>Approximately 7 years in easy monthly installments</td></tr>
+            <tr><td>Grace period</td><td>3 months before repayment starts</td></tr>
+            <tr><td>Application fee</td><td>Online registration on the official portal is free</td></tr>
+            <tr><td>Executing agency</td><td>PHATA (Punjab Housing &amp; Town Planning Agency)</td></tr>
+            <tr><td>Target</td><td>100,000 houses/apartments across Punjab</td></tr>
+          </table>
+        </div>
+        <p>Loan money is released in <strong>tranches (stages)</strong> linked to construction progress — foundation, structure, and finishing — after physical verification at each stage. Exact installment amounts and tranche schedules are confirmed by PHATA at approval time, so always rely on the figures shown in your official dashboard.</p>
+      </section>
+
+      <section class="guide-section" id="acag-eligibility">
+        <div class="gs-head"><div class="gs-num">3</div><h2 class="gs-title">Who is Eligible? (Complete Criteria)</h2></div>
+        <p>You should meet <strong>all</strong> of these conditions before applying:</p>
+        <ul>
+          <li><strong>Punjab resident:</strong> Permanent resident of Punjab, verified through your CNIC address.</li>
+          <li><strong>Head of family:</strong> You must be the head of your family according to NADRA records — one application per household.</li>
+          <li><strong>Plot ownership:</strong> You (the household) must own a plot — up to <strong>5 Marla in urban areas</strong> or up to <strong>10 Marla in rural areas</strong> — with valid ownership proof (Fard, registry, or allotment letter).</li>
+          <li><strong>NSER / PMT score:</strong> Your household should be registered in the National Socio-Economic Registry (NSER) with a <strong>PMT score of 60 or less</strong>.</li>
+          <li><strong>No loan default:</strong> You must not be a defaulter of any bank or financial institution.</li>
+          <li><strong>Clean record:</strong> No criminal record.</li>
+        </ul>
+        <div class="gs-callout gold">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5b4a12" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4"/><path d="M12 16h.01"/><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2c.57.14.76.69.76 1.23v6.77Z"/></svg>
+          <span><strong>Not sure about your PMT score?</strong> The PMT score comes from the BISP/NSER household survey. If your household was never surveyed, visit your nearest BISP registration center to get surveyed first.</span>
+        </div>
+      </section>
+
+      <section class="guide-section" id="acag-documents">
+        <div class="gs-head"><div class="gs-num">4</div><h2 class="gs-title">Documents Required</h2></div>
+        <p>Prepare these documents before you start the online application — it makes the process much faster:</p>
+        <ul>
+          <li><strong>CNIC / NICOP</strong> — clear scan or photo of front and back.</li>
+          <li><strong>Proof of land ownership</strong> — Fard (land record), registry, or allotment letter. Land records are verified through PLRA (Punjab Land Records Authority).</li>
+          <li><strong>Possession proof</strong> — document or evidence showing you physically possess the plot.</li>
+          <li><strong>Recent photographs</strong> — passport-size photos with plain background.</li>
+          <li><strong>Income information</strong> — where asked (e.g. salary slip or bank statement), to assess repayment capacity.</li>
+          <li><strong>Affidavit / declaration</strong> — as required by the portal, e.g. declaring you own no other house.</li>
+        </ul>
+        <p>All documents are uploaded/verified through the official process. Never hand your original documents to any agent or "facilitator".</p>
+      </section>
+
+      <section class="guide-section" id="acag-apply">
+        <div class="gs-head"><div class="gs-num">5</div><h2 class="gs-title">How to Apply Online — Step by Step</h2></div>
+        <div class="gs-steps">
+          <div class="gs-step-item"><div class="gs-step-num">1</div><div><b>Open the official portal</b><p>Go to <strong>acag.punjab.gov.pk</strong> — type it yourself in the browser; don't follow links from SMS or WhatsApp forwards.</p></div></div>
+          <div class="gs-step-item"><div class="gs-step-num">2</div><div><b>Register with your CNIC</b><p>Enter your CNIC number and mobile number (the SIM should be registered on your own CNIC) and verify via the code you receive.</p></div></div>
+          <div class="gs-step-item"><div class="gs-step-num">3</div><div><b>Fill the application form</b><p>Provide family, plot, and income details exactly as per your documents. Wrong details are the most common reason for rejection.</p></div></div>
+          <div class="gs-step-item"><div class="gs-step-num">4</div><div><b>Attach documents &amp; submit</b><p>Upload CNIC, land proof, and photos where required, review everything once, then submit. Save/download your acknowledgement slip.</p></div></div>
+          <div class="gs-step-item"><div class="gs-step-num">5</div><div><b>Verification &amp; approval</b><p>PHATA and related departments verify your record (NADRA, NSER/PMT, PLRA land record, bank default check). Keep checking your dashboard and SMS for updates.</p></div></div>
+        </div>
+        <div class="gs-callout blue">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1e3a6e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <span><strong>Applications are rolling:</strong> registrations are processed in batches as PHATA verifies them, so apply as soon as your documents are ready.</span>
+        </div>
+      </section>
+
+      <section class="guide-section" id="acag-status">
+        <div class="gs-head"><div class="gs-num">6</div><h2 class="gs-title">How to Check Your Application Status</h2></div>
+        <p>After applying, you can track your application any time:</p>
+        <ol>
+          <li>Open <strong>acag.punjab.gov.pk</strong> and log in with your <strong>CNIC number</strong>.</li>
+          <li>Your dashboard shows the current stage — submitted, under verification, approved, or objection.</li>
+          <li>From the dashboard you can also <strong>download your acknowledgement slip</strong> and see notifications about next steps.</li>
+          <li>Keep your registered mobile active — official updates also come via SMS.</li>
+        </ol>
+        <p>If an <strong>objection</strong> appears (e.g. land record mismatch), read it carefully, fix the document issue, and respond through the portal within the given time.</p>
+      </section>
+
+      <section class="guide-section" id="acag-repayment">
+        <div class="gs-head"><div class="gs-num">7</div><h2 class="gs-title">Loan Release, Installments &amp; Repayment</h2></div>
+        <p>The loan is <strong>not given as one lump sum</strong>. It is released in stages tied to construction progress, verified physically:</p>
+        <ul>
+          <li><strong>Stage 1:</strong> initial tranche for foundation/plinth work.</li>
+          <li><strong>Stage 2:</strong> released after verification of structure progress (walls/roof).</li>
+          <li><strong>Stage 3:</strong> final tranche for finishing work.</li>
+        </ul>
+        <p><strong>Repayment</strong> starts after a <strong>3-month grace period</strong> and runs for about <strong>7 years</strong> in easy monthly installments. Because the loan is markup-free, you only return the principal amount. Your exact monthly installment is stated in your loan agreement — pay on time to keep your record clean.</p>
+        <div class="gs-callout gold">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5b4a12" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4"/><path d="M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg>
+          <span>Use the loan only for construction of the declared plot. Misuse can lead to cancellation and recovery of the amount.</span>
+        </div>
+      </section>
+
+      <section class="guide-section" id="acag-urban-rural">
+        <div class="gs-head"><div class="gs-num">8</div><h2 class="gs-title">Urban vs Rural — What's Different?</h2></div>
+        <div class="gs-table-wrap">
+          <table class="gs-table">
+            <tr><th>Condition</th><th>Urban Areas</th><th>Rural Areas</th></tr>
+            <tr><td>Maximum plot size</td><td>Up to 5 Marla</td><td>Up to 10 Marla</td></tr>
+            <tr><td>Land proof</td><td>Registry / allotment / Fard</td><td>Fard (PLRA record) most common</td></tr>
+            <tr><td>Loan &amp; terms</td><td colspan="2">Same for both — up to Rs. 15 lakh, interest-free, ~7-year repayment</td></tr>
+          </table>
+        </div>
+        <p>Everything else — eligibility, documents, application process, and repayment — is the same. The only real difference is the plot size limit and the typical form of land record.</p>
+      </section>
+
+      <section class="guide-section" id="acag-mistakes">
+        <div class="gs-head"><div class="gs-num">9</div><h2 class="gs-title">Common Mistakes That Get Applications Rejected</h2></div>
+        <ul>
+          <li><strong>CNIC address outside Punjab</strong> — update your CNIC with NADRA first if you actually live in Punjab.</li>
+          <li><strong>Not the family head</strong> — the application must be in the name of the NADRA-recorded head of family.</li>
+          <li><strong>Plot not in your name</strong> — transfer/inheritance (intiqal) must be completed in the land record before applying.</li>
+          <li><strong>Plot bigger than the limit</strong> — over 5 Marla urban / 10 Marla rural doesn't qualify.</li>
+          <li><strong>PMT score above 60</strong> or household not in NSER survey.</li>
+          <li><strong>Wrong mobile number</strong> — use a SIM registered on your own CNIC; OTP and updates go there.</li>
+          <li><strong>Mismatched details</strong> — name spellings and plot details must exactly match CNIC and Fard.</li>
+        </ul>
+      </section>
+
+      <section class="guide-section" id="acag-scams">
+        <div class="gs-head"><div class="gs-num">10</div><h2 class="gs-title">⚠️ Scam Alert — Protect Yourself</h2></div>
+        <div class="gs-callout red">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7f1d1d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+          <span><strong>The official registration is FREE.</strong> Anyone demanding money to "approve", "speed up", or "guarantee" your Apni Chhat Apna Ghar loan is a fraudster.</span>
+        </div>
+        <ul>
+          <li>Never pay any agent, "office", or Facebook/TikTok page for registration or approval.</li>
+          <li>Never share your <strong>OTP code, bank PIN, or password</strong> with anyone claiming to be from the scheme.</li>
+          <li>Fake websites copy the scheme's name — the only official portal is <strong>acag.punjab.gov.pk</strong> (note the <strong>.gov.pk</strong> ending).</li>
+          <li>Government staff never ask for fees via Easypaisa/JazzCash for this program.</li>
+          <li>Report fraud attempts to your local police or cybercrime authorities (NCCIA).</li>
+        </ul>
+      </section>
+
+      <section class="guide-section" id="acag-progress">
+        <div class="gs-head"><div class="gs-num">11</div><h2 class="gs-title">Program Progress So Far</h2></div>
+        <p>The program has moved fast since its launch. Public reporting indicates that <strong>tens of thousands of families</strong> have already received loans, thousands of homes are <strong>completed</strong>, and tens of thousands more are <strong>under construction</strong> across Punjab's districts.</p>
+        <p>Because these numbers change month to month, treat any figure you read (including here) as a snapshot — the latest official statistics are announced by the Punjab Government and PHATA.</p>
+      </section>
+
+      <section class="guide-section" id="acag-official">
+        <div class="gs-head"><div class="gs-num">12</div><h2 class="gs-title">Official Channels Only</h2></div>
+        <ul>
+          <li><strong>Registration &amp; status:</strong> <a href="https://acag.punjab.gov.pk/" target="_blank" rel="noopener noreferrer" style="color:var(--color-blue-primary);font-weight:700;">acag.punjab.gov.pk</a> — the only official ACAG portal.</li>
+          <li><strong>Program information:</strong> Punjab Government portal (punjab.gov.pk) and PHATA.</li>
+          <li><strong>NSER / PMT survey:</strong> your nearest BISP registration center.</li>
+          <li><strong>Land record (Fard):</strong> PLRA — Punjab Land Records Authority centers.</li>
+        </ul>
+        <p>This website is an independent guide. When in doubt about any rule, fee, date, or amount — the official portal's information always wins.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- 7. FAQ Section -->
+  <section class="faq-section" id="acag-faqs">
+    <div class="container">
+      <div class="guide-header">
+        <span class="guide-eyebrow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0f4ec2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+          Frequently Asked Questions
+        </span>
+        <h2>Apni Chhat Apna Ghar — FAQs</h2>
+        <p>Quick answers to the questions people ask most about the scheme.</p>
+      </div>
+
+      <div class="faq-list" id="faqList">
+        <!-- FAQs injected by JS from FAQ_DATA (also used for schema) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CTA Band -->
+  <section class="cta-band-section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Ready to Apply for Your Own Home?</h2>
+        <p>If you meet the eligibility conditions and your documents are ready, apply directly on the official portal — it's free, and you don't need any agent.</p>
+        <div class="acag-official-countdown" data-acag-countdown-state="idle" style="display:inline-block;">
+          <a data-acag-official-portal-link="true" data-acag-countdown-seconds="5" href="https://acag.punjab.gov.pk/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            <span class="btn-icon-left">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#07172b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+            </span>
+            <div class="btn-primary-left">
+              <span class="btn-title acag-official-countdown-label">Go to acag.punjab.gov.pk</span>
+              <span class="btn-subtitle">Official Apni Chhat Apna Ghar portal</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>ApniChat<span>ApnaGhar</span>.net.pk</h3>
+          <p>An independent, free information guide about the Apni Chhat Apna Ghar housing program of Punjab. We explain eligibility, documents, and application steps in simple words. We are not a government website and we never collect payments or personal credentials. All official transactions happen only at acag.punjab.gov.pk.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Guide</h4>
+          <ul>
+            <li><a href="#acag-meaning">What is the program?</a></li>
+            <li><a href="#acag-eligibility">Eligibility criteria</a></li>
+            <li><a href="#acag-documents">Documents required</a></li>
+            <li><a href="#acag-apply">How to apply online</a></li>
+            <li><a href="#acag-status">Check application status</a></li>
+            <li><a href="#acag-faqs">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Official Links</h4>
+          <ul>
+            <li><a href="https://acag.punjab.gov.pk/" target="_blank" rel="noopener noreferrer">ACAG Official Portal</a></li>
+            <li><a href="https://punjab.gov.pk/" target="_blank" rel="noopener noreferrer">Punjab Government</a></li>
+            <li><a href="#acag-smart-tool">Eligibility Checker Tool</a></li>
+            <li><a href="#acag-scams">Scam Alert</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 ApniChatApnaGhar.net.pk — Independent information guide. Not affiliated with the Government of Punjab or PHATA.</p>
+        <p>Official portal: <a href="https://acag.punjab.gov.pk/" target="_blank" rel="noopener noreferrer">acag.punjab.gov.pk</a></p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ============ FAQ data (rendered + schema) ============ */
+  var FAQ_DATA = [
+    ["What is the Apni Chhat Apna Ghar scheme?", "It is a CM Punjab housing initiative that gives eligible low-income families of Punjab an interest-free construction loan of up to Rs. 15 lakh so they can build a house on their own small plot. It is executed by PHATA."],
+    ["Is the loan really interest-free?", "Yes. The applicant repays only the principal amount in monthly installments — the markup/financial cost is borne by the Punjab Government."],
+    ["How much loan can I get?", "Up to Rs. 1,500,000 (15 lakh) for house construction, released in stages linked to construction progress."],
+    ["What is the repayment period?", "Approximately 7 years in easy monthly installments, with a 3-month grace period before repayment starts. Your exact schedule is stated in your loan agreement."],
+    ["Who can apply?", "A permanent resident of Punjab who is the head of family per NADRA record, owns a plot within the size limit (5 Marla urban / 10 Marla rural), is registered in NSER with a PMT score of 60 or less, and is not a bank defaulter."],
+    ["What is a PMT score and how do I check it?", "PMT (Poverty Means Test) is a score from the BISP/NSER household survey. Your household's PMT must be 60 or below. If your household was never surveyed, visit your nearest BISP registration center."],
+    ["Where do I apply?", "Only at the official portal acag.punjab.gov.pk. Registration is online and free — you only need your CNIC and a mobile SIM registered on your own CNIC."],
+    ["Is there any registration fee?", "No. Online registration on the official portal is completely free. Anyone demanding a fee for registration or approval is committing fraud."],
+    ["Do I need a plot to apply?", "Yes. This component of the program is a construction loan, so you must own a plot — up to 5 Marla in urban areas or up to 10 Marla in rural areas — with valid ownership proof like Fard or registry."],
+    ["Can women apply?", "Yes. Any eligible head of family per NADRA record can apply, whether male or female."],
+    ["Can I apply if I live in another province?", "No. The scheme is only for permanent residents of Punjab, verified through the CNIC address."],
+    ["What documents are required?", "CNIC (front/back), land ownership proof (Fard, registry, or allotment letter), possession proof, recent photographs, income information where asked, and any required affidavit."],
+    ["How is the land record verified?", "Land ownership is verified through PLRA (Punjab Land Records Authority) records. Make sure the plot is transferred to your name (intiqal complete) before applying."],
+    ["How do I check my application status?", "Log in at acag.punjab.gov.pk with your CNIC number. Your dashboard shows the current stage and lets you download your acknowledgement slip."],
+    ["How is the loan money released?", "In tranches tied to construction stages — foundation, structure, and finishing — with physical verification before each release."],
+    ["When does repayment start?", "After a grace period of about 3 months following disbursement, as specified in your loan agreement."],
+    ["What if my application gets an objection?", "Read the objection in your dashboard carefully, fix the underlying document issue (for example a land record mismatch), and respond through the portal within the given time."],
+    ["Can I use the loan to buy a plot?", "No. This loan is for construction on a plot you already own. Using it for any other purpose can lead to cancellation and recovery."],
+    ["Is there an age requirement?", "You must hold a valid CNIC and be the head of family per NADRA record. Follow the exact conditions listed on the official portal at the time of applying."],
+    ["What is the last date to apply?", "Applications for the construction loan are accepted on a rolling basis and processed in batches. No fixed closing date has been announced — apply as soon as your documents are ready and confirm on the official portal."],
+    ["Is apnichatapnaghar.net.pk a government website?", "No. This is an independent information guide. We are not affiliated with the Government of Punjab or PHATA, and we never collect payments or applications. The only official portal is acag.punjab.gov.pk."],
+    ["Someone on WhatsApp says they can approve my loan for a fee. Is it real?", "It is a scam. No agent can approve, speed up, or guarantee your loan. Never pay anyone and never share your OTP, PIN, or password. Report such attempts to the police or cybercrime authorities."]
+  ];
+
+  /* ============ Render FAQs ============ */
+  var faqList = document.getElementById("faqList");
+  if (faqList) {
+    FAQ_DATA.forEach(function (pair) {
+      var item = document.createElement("div");
+      item.className = "faq-item";
+      var btn = document.createElement("button");
+      btn.className = "faq-q";
+      btn.setAttribute("aria-expanded", "false");
+      btn.innerHTML = '<span>' + pair[0] + '</span><span class="faq-chevron"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0f4ec2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>';
+      var ans = document.createElement("div");
+      ans.className = "faq-a";
+      ans.innerHTML = '<div class="faq-a-inner">' + pair[1] + '</div>';
+      btn.addEventListener("click", function () {
+        var isOpen = item.classList.contains("open");
+        faqList.querySelectorAll(".faq-item.open").forEach(function (o) {
+          o.classList.remove("open");
+          o.querySelector(".faq-a").style.maxHeight = null;
+          o.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+        });
+        if (!isOpen) {
+          item.classList.add("open");
+          ans.style.maxHeight = ans.scrollHeight + "px";
+          btn.setAttribute("aria-expanded", "true");
+        }
+      });
+      item.appendChild(btn);
+      item.appendChild(ans);
+      faqList.appendChild(item);
+    });
+  }
+
+  /* ============ FAQPage JSON-LD (built from same data) ============ */
+  var faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQ_DATA.map(function (pair) {
+      return {
+        "@type": "Question",
+        "name": pair[0],
+        "acceptedAnswer": { "@type": "Answer", "text": pair[1] }
+      };
+    })
+  };
+  var s = document.createElement("script");
+  s.type = "application/ld+json";
+  s.textContent = JSON.stringify(faqSchema);
+  document.head.appendChild(s);
+
+  /* ============ Official CTA countdown (5s redirect + cancel) ============ */
+  document.querySelectorAll(".acag-official-countdown").forEach(function (wrap) {
+    var link = wrap.querySelector("[data-acag-official-portal-link]");
+    if (!link) return;
+    var label = link.querySelector(".acag-official-countdown-label");
+    var status = wrap.querySelector(".acag-official-countdown-status");
+    var baseText = label ? label.textContent : "";
+    var seconds = parseInt(link.getAttribute("data-acag-countdown-seconds") || "5", 10);
+    var timer = null, remaining = seconds, cancelBtn = null;
+
+    function reset() {
+      if (timer) { clearInterval(timer); timer = null; }
+      remaining = seconds;
+      wrap.setAttribute("data-acag-countdown-state", "idle");
+      if (label) label.textContent = baseText;
+      if (status) status.textContent = "";
+      if (cancelBtn) { cancelBtn.remove(); cancelBtn = null; }
+    }
+
+    link.addEventListener("click", function (e) {
+      if (wrap.getAttribute("data-acag-countdown-state") === "counting") return; // second click = go now (default nav)
+      e.preventDefault();
+      wrap.setAttribute("data-acag-countdown-state", "counting");
+      cancelBtn = document.createElement("button");
+      cancelBtn.className = "pcc-official-countdown-cancel";
+      cancelBtn.type = "button";
+      cancelBtn.textContent = "✕ Cancel redirect";
+      cancelBtn.addEventListener("click", function (ev) { ev.preventDefault(); reset(); });
+      wrap.appendChild(cancelBtn);
+
+      function tick() {
+        if (label) label.textContent = "Redirecting in " + remaining + "s… (click again to go now)";
+        if (status) status.textContent = "Redirecting to the official portal in " + remaining + " seconds. Press cancel to stay.";
+        if (remaining <= 0) {
+          reset();
+          window.open(link.href, "_blank", "noopener");
+        }
+        remaining--;
+      }
+      tick();
+      timer = setInterval(tick, 1000);
+    });
+  });
+
+  /* ============ Smart Eligibility Tool ============ */
+  var stBody = document.getElementById("stBody");
+  if (stBody) {
+    var steps = Array.prototype.slice.call(stBody.querySelectorAll(".st-step"));
+    var result = document.getElementById("stResult");
+    var fill = document.getElementById("stProgressFill");
+    var backRow = document.getElementById("stBackRow");
+    var backBtn = document.getElementById("stBackBtn");
+    var answers = [];
+    var current = 0;
+
+    var CHECK_LABELS = [
+      "Permanent resident of Punjab (CNIC)",
+      "Head of family as per NADRA",
+      "Own plot within limit (5 Marla urban / 10 Marla rural)",
+      "NSER registered with PMT score ≤ 60",
+      "No loan default / clean record"
+    ];
+
+    function show(idx) {
+      steps.forEach(function (st, i) { st.classList.toggle("active", i === idx); });
+      result.classList.remove("active");
+      fill.style.width = ((idx) / steps.length * 100) + "%";
+      backRow.style.display = idx > 0 ? "block" : "none";
+    }
+
+    function showResult() {
+      steps.forEach(function (st) { st.classList.remove("active"); });
+      fill.style.width = "100%";
+      backRow.style.display = "block";
+
+      var fails = [], unsures = [];
+      answers.forEach(function (a, i) {
+        if (a === "no") fails.push(i);
+        if (a === "unsure") unsures.push(i);
+      });
+
+      var html = "";
+      if (fails.length === 0 && unsures.length === 0) {
+        html += '<div class="st-result-icon ok"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>';
+        html += "<h3>Great — you appear to meet the basic conditions! ✅</h3>";
+        html += "<p>Based on your answers, you match the publicly listed criteria. Final eligibility is always decided by PHATA after verification of NADRA, NSER, land record, and bank data. Prepare your documents and apply on the official portal.</p>";
+      } else if (fails.length === 0) {
+        html += '<div class="st-result-icon warn"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b48908" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>';
+        html += "<h3>You may be eligible — one thing to confirm first</h3>";
+        html += "<p>Check your NSER/PMT status at your nearest BISP registration center (or the official channels). If your PMT score is 60 or below, you can proceed to apply on the official portal.</p>";
+      } else {
+        html += '<div class="st-result-icon no"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></div>';
+        html += "<h3>Some conditions are not met yet</h3>";
+        html += "<p>Based on your answers, the items below don't currently match the scheme's criteria. Some of them can be fixed (e.g. updating NADRA record, completing plot transfer, getting the NSER survey). Rules can change — always confirm on the official portal.</p>";
+      }
+
+      html += '<div class="st-result-checks">';
+      CHECK_LABELS.forEach(function (lbl, i) {
+        var bad = answers[i] === "no";
+        var unsure = answers[i] === "unsure";
+        html += '<div class="st-check-line' + (bad ? " bad" : "") + '">' + (bad ? "❌" : (unsure ? "❓" : "✅")) + " <span>" + lbl + (unsure ? " — <b>needs checking</b>" : "") + "</span></div>";
+      });
+      html += "</div>";
+
+      html += '<div class="acag-official-countdown" data-acag-countdown-state="idle" style="display:inline-block;"><a data-acag-official-portal-link="true" data-acag-countdown-seconds="5" href="https://acag.punjab.gov.pk/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:inline-flex;"><span class="btn-icon-left"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span><div class="btn-primary-left"><span class="btn-title">Continue to Official ACAG Portal</span><span class="btn-subtitle">acag.punjab.gov.pk</span></div></a></div>';
+      html += '<br><button class="st-restart" id="stRestart">↻ Start over</button>';
+
+      result.innerHTML = html;
+      result.classList.add("active");
+
+      var restart = document.getElementById("stRestart");
+      if (restart) restart.addEventListener("click", function () { answers = []; current = 0; show(0); });
+
+      /* re-bind countdown for the injected CTA */
+      var wrap2 = result.querySelector(".acag-official-countdown");
+      if (wrap2) {
+        var link2 = wrap2.querySelector("a");
+        var t2 = null, rem2 = 5;
+        link2.addEventListener("click", function (e) {
+          if (wrap2.getAttribute("data-acag-countdown-state") === "counting") return;
+          e.preventDefault();
+          wrap2.setAttribute("data-acag-countdown-state", "counting");
+          var lbl2 = link2.querySelector(".btn-title");
+          var base2 = lbl2.textContent;
+          function tick2() {
+            lbl2.textContent = "Redirecting in " + rem2 + "s…";
+            if (rem2 <= 0) {
+              clearInterval(t2); t2 = null; rem2 = 5;
+              wrap2.setAttribute("data-acag-countdown-state", "idle");
+              lbl2.textContent = base2;
+              window.open(link2.href, "_blank", "noopener");
+            }
+            rem2--;
+          }
+          tick2();
+          t2 = setInterval(tick2, 1000);
+        });
+      }
+    }
+
+    steps.forEach(function (st, idx) {
+      st.querySelectorAll(".st-option").forEach(function (opt) {
+        opt.addEventListener("click", function () {
+          answers[idx] = opt.getAttribute("data-answer");
+          if (idx < steps.length - 1) { current = idx + 1; show(current); }
+          else { current = steps.length; showResult(); }
+        });
+      });
+    });
+
+    backBtn.addEventListener("click", function () {
+      if (current > 0) { current--; answers.length = current; show(current); }
+    });
+
+    show(0);
+  }
+
+  /* ============ Smooth scroll for in-page anchors ============ */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      var target = document.querySelector(a.getAttribute("href"));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: "smooth", block: "start" }); }
+    });
+  });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "ApniChatApnaGhar.net.pk",
+  "url": "https://apnichatapnaghar.net.pk/",
+  "description": "Independent information guide for the Apni Chhat Apna Ghar housing program of Punjab — eligibility, documents, loan details, and how to apply online at the official portal acag.punjab.gov.pk.",
+  "inLanguage": ["en", "ur"]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Apni Chhat Apna Ghar Online Registration 2026 — Eligibility, Documents & Apply Guide",
+  "description": "Complete guide to the Apni Chhat Apna Ghar interest-free housing loan: up to Rs. 15 lakh, ~7-year repayment, 3-month grace period, eligibility (PMT ≤ 60, 5 Marla urban / 10 Marla rural plot), required documents, and step-by-step online application at acag.punjab.gov.pk.",
+  "dateModified": "2026-07-21",
+  "author": { "@type": "Organization", "name": "ApniChatApnaGhar.net.pk" },
+  "publisher": { "@type": "Organization", "name": "ApniChatApnaGhar.net.pk" },
+  "mainEntityOfPage": "https://apnichatapnaghar.net.pk/"
+}
+</script>
