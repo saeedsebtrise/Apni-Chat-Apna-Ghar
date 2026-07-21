@@ -1,0 +1,315 @@
+<!-- ============================================================
+  ACAG FAQs PAGE — apnichatapnaghar.net.pk
+  68 questions · 12 categories · live search · category filter ·
+  accordion · FAQPage JSON-LD schema (auto-generated from data).
+  No font <link> lines — fonts site-wide header (WPCode) se aate hain.
+  WordPress "Custom HTML" block me paste karein (FAQs page).
+============================================================= -->
+<div class="acagfaq" id="acagfaq">
+<style>
+.acagfaq{--green:#115e3b;--green2:#166031;--green-bg:#f0f7f3;--orange:#F8802E;--orange-d:#c2610a;
+  --ink:#0b2216;--body:#3d5247;--mut:#6b7f74;--line:rgba(17,94,59,0.10);--card:#ffffff;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--body);
+  width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
+  background:linear-gradient(180deg,#f7faf8 0%,#eef6f1 60%,#f7faf8 100%);padding:44px 0 64px;line-height:1.6;}
+.acagfaq *,.acagfaq *::before,.acagfaq *::after{box-sizing:border-box;margin:0;padding:0;}
+.acagfaq .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+.acagfaq .u{font-family:'Noto Nastaliq Urdu','Jameel Noori Nastaleeq',serif;direction:rtl;font-size:.95em;line-height:2.1;}
+
+/* ── Header ── */
+.faq-hd{text-align:center;margin-bottom:26px;}
+.faq-pill{display:inline-flex;align-items:center;gap:7px;background:#fff;color:var(--green);
+  font-size:.73rem;font-weight:800;text-transform:uppercase;letter-spacing:.09em;
+  padding:7px 18px;border-radius:50px;border:1px solid rgba(17,94,59,0.15);
+  box-shadow:0 2px 10px rgba(17,94,59,0.07);margin-bottom:14px;}
+.faq-pill svg{width:14px;height:14px;}
+.faq-hd h2{font-size:clamp(1.6rem,3vw,2.3rem)!important;font-weight:900!important;color:var(--ink)!important;
+  line-height:1.25!important;margin-bottom:8px!important;}
+.faq-hd h2 span{color:var(--green);}
+.faq-hd>p{font-size:.92rem;color:var(--mut);max-width:600px;margin:0 auto;}
+.faq-hd .u{display:block;color:#38604a;margin-top:6px;}
+
+/* ── Search ── */
+.faq-search{max-width:620px;margin:22px auto 14px;position:relative;}
+.faq-search svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--mut);pointer-events:none;}
+.faq-search input{width:100%;font:inherit;font-size:.95rem;color:var(--ink);background:#fff;
+  border:1.5px solid var(--line);border-radius:50px;padding:13px 44px 13px 46px;outline:none;
+  box-shadow:0 2px 12px rgba(17,94,59,0.05);transition:border-color .2s,box-shadow .2s;}
+.faq-search input:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(17,94,59,0.10);}
+.faq-search .faq-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:0;background:var(--green-bg);
+  color:var(--green);width:28px;height:28px;border-radius:50%;font-weight:800;cursor:pointer;display:none;font-size:.85rem;}
+
+/* ── Category chips ── */
+.faq-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:0 auto 30px;max-width:920px;}
+.faq-chip{font:inherit;font-size:.78rem;font-weight:700;color:var(--body);background:#fff;
+  border:1.5px solid var(--line);border-radius:50px;padding:7px 14px;cursor:pointer;transition:all .18s;
+  -webkit-appearance:none;appearance:none;}
+.faq-chip:hover{border-color:var(--green);color:var(--green);}
+.faq-chip.on{background:var(--green);border-color:var(--green);color:#fff;box-shadow:0 4px 12px rgba(17,94,59,0.25);}
+.faq-chip small{opacity:.65;font-weight:800;margin-left:4px;}
+
+/* ── Category group ── */
+.faq-group{margin-bottom:26px;}
+.faq-group-hd{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.faq-group-ico{width:38px;height:38px;border-radius:10px;background:var(--green);color:#fff;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 10px rgba(17,94,59,0.25);}
+.faq-group-ico svg{width:18px;height:18px;}
+.faq-group-hd h3{font-size:1.02rem;font-weight:800;color:var(--ink);}
+.faq-group-hd small{display:block;font-size:.72rem;color:var(--mut);font-weight:600;}
+
+/* ── Accordion item ── */
+.faq-item{background:var(--card);border:1.5px solid var(--line);border-radius:14px;margin-bottom:10px;
+  overflow:hidden;transition:border-color .2s,box-shadow .2s;}
+.faq-item.open{border-color:rgba(17,94,59,0.35);box-shadow:0 8px 24px rgba(17,94,59,0.08);}
+.faq-q{width:100%;display:flex;align-items:center;gap:12px;padding:15px 18px;background:none!important;
+  border:0;cursor:pointer;text-align:left;font-family:inherit;font-size:.95rem;font-weight:700;color:var(--ink)!important;
+  -webkit-appearance:none;appearance:none;}
+.faq-q:hover{color:var(--green)!important;}
+.faq-q .faq-num{flex-shrink:0;font-size:.7rem;font-weight:800;color:var(--green);background:var(--green-bg);
+  border-radius:7px;padding:4px 8px;letter-spacing:.02em;}
+.faq-q .faq-qtext{flex:1;}
+.faq-chev{width:26px;height:26px;border-radius:50%;background:var(--green-bg);display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;transition:transform .25s,background .25s;}
+.faq-chev svg{width:13px;height:13px;stroke:var(--green);transition:stroke .25s;}
+.faq-item.open .faq-chev{transform:rotate(180deg);background:var(--green);}
+.faq-item.open .faq-chev svg{stroke:#fff;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.faq-a-in{padding:0 18px 16px 18px;font-size:.88rem;color:var(--body);line-height:1.75;}
+.faq-a-in a{color:var(--green);font-weight:700;text-decoration:underline;}
+.faq-a-in strong{color:var(--ink);}
+
+/* ── No results / notice ── */
+.faq-none{display:none;text-align:center;background:#fff;border:1.5px dashed var(--line);border-radius:14px;
+  padding:28px 20px;color:var(--mut);font-size:.9rem;}
+.faq-note{display:flex;gap:12px;align-items:flex-start;background:#fbf3df;border:1.5px solid #C8A24B;
+  border-radius:12px;padding:14px 16px;font-size:.84rem;color:#5b4a12;margin-top:26px;line-height:1.65;}
+.faq-note svg{flex-shrink:0;margin-top:2px;width:18px;height:18px;}
+.faq-note a{color:var(--green);font-weight:700;}
+
+@media(max-width:600px){
+  .acagfaq{padding:32px 0 44px;}
+  .faq-q{font-size:.88rem;padding:13px 14px;gap:9px;}
+  .faq-a-in{font-size:.83rem;padding:0 14px 14px;}
+  .faq-chips{gap:6px;}
+  .faq-chip{font-size:.72rem;padding:6px 11px;}
+}
+</style>
+
+  <div class="wrap">
+
+    <div class="faq-hd">
+      <div class="faq-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+        Frequently Asked Questions
+      </div>
+      <h2>Apni Chhat Apna Ghar — <span>Your Questions, Answered</span></h2>
+      <p>68 clear answers about eligibility, registration, PMT score, documents, installments, balloting, construction and more.
+        <span class="u">اپنی چھت اپنا گھر کے بارے میں ہر سوال کا آسان جواب</span></p>
+    </div>
+
+    <div class="faq-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" id="faqSearch" placeholder="Search a question… e.g. PMT score, installment, documents" aria-label="Search FAQs">
+      <button class="faq-clear" id="faqClear" type="button" aria-label="Clear search">✕</button>
+    </div>
+
+    <div class="faq-chips" id="faqChips" role="tablist" aria-label="FAQ categories"></div>
+
+    <div id="faqBody"></div>
+
+    <div class="faq-none" id="faqNone">
+      😕 Koi matching sawal nahi mila. Spelling badal kar try karein — ya humse <a href="https://apnichatapnaghar.net.pk/contact-us/" style="color:var(--green);font-weight:700;">Contact page</a> par poochh lein.
+    </div>
+
+    <div class="faq-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#5b4a12" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <span><strong>Disclaimer:</strong> apnichatapnaghar.net.pk is an independent information guide — not a government website. Rules, amounts and dates can change; final and official information is always what appears on <a href="https://acag.punjab.gov.pk" target="_blank" rel="noopener">acag.punjab.gov.pk</a> and in PHATA / Bank of Punjab communication. Registration is free — never pay any agent.</span>
+    </div>
+
+  </div>
+
+<script>
+(function(){
+  var CATS=[
+  {t:"Scheme Basics",icon:"home",qs:[
+    ["What is Apni Chat Apna Ghar?","<strong>Apni Chhat Apna Ghar (ACAG)</strong> is the Punjab Government's flagship housing program. It gives eligible low-income families an <strong>interest-free construction loan of up to Rs. 15 lakh</strong> so they can build a house on a plot they already own. The program is executed by <strong>PHATA</strong> and the loan is disbursed through the <strong>Bank of Punjab</strong> in construction-linked stages."],
+    ["Who launched Apni Chhat Apna Ghar scheme?","The scheme was launched by <strong>Chief Minister Punjab Maryam Nawaz Sharif</strong> as a flagship initiative of the Punjab Government, with the goal of providing affordable housing to low-income families across the province."],
+    ["When was Apni Chat Apna Ghar launched?","It was launched in <strong>2024</strong> by the Punjab Government and has continued in expanding phases since then, with new districts, balloting rounds and companion programs (like Mehfooz Ghar and Apni Zameen Apna Ghar) added over time."],
+    ["Is Apni Chat Apna Ghar only for Punjab residents?","Yes. Only <strong>permanent residents of Punjab</strong> can apply — your CNIC must show a Punjab address. Residents of other provinces are not eligible for this particular scheme."],
+    ["What is the difference between \"Apni Chat\" and \"Apni Chhat\"?","They are the <strong>same scheme</strong>. The correct transliteration of چھت (roof) is \"Chhat\", but many people type \"Chat\" while searching. Whether you write Apni Chat Apna Ghar or Apni Chhat Apna Ghar, it refers to the same Punjab housing program."],
+    ["Is this scheme free or a loan?","It is an <strong>interest-free loan, not a free grant</strong>. You repay only the principal amount in easy monthly installments — the government bears the markup/financial cost, so you pay 0% interest."],
+    ["How many families have applied for Apni Chat Apna Ghar so far?","Public reporting indicates that <strong>over 1.2 million families</strong> have applied since launch (figure as of 2026 — it changes every month as applications keep coming on a rolling basis)."],
+    ["How many homes have been completed under this scheme?","More than <strong>100,000 homes</strong> have been reported complete, with tens of thousands more under construction across Punjab. Treat any number as a snapshot — the latest official statistics are announced by the Punjab Government and PHATA."],
+    ["Is Apni Chat Apna Ghar a one-time scheme or ongoing?","It is an <strong>ongoing program</strong>. Applications are accepted on a rolling basis and processed in verification and balloting batches, so if you miss one round you can still apply for the next."],
+    ["What is PHATA and what role does it play?","<strong>PHATA</strong> (Punjab Housing &amp; Town Planning Agency) is the executing agency of ACAG. It handles application verification, approvals, construction-stage inspections, and authorizes the release of each loan tranche."]
+  ]},
+  {t:"Eligibility",icon:"check",qs:[
+    ["Can a person with a government job apply for Apni Chat Apna Ghar?","A government job is not an automatic bar, but your household must be registered in <strong>NSER with a PMT score of 60 or below</strong> — and most regular salaried government employees score above that threshold. The final decision always rests with PHATA's verification."],
+    ["Is there an income limit for Apni Chat Apna Ghar?","There is no fixed salary cut-off published. Instead, the <strong>PMT score (≤60)</strong> works as the means test, and income proof is used to assess your repayment capacity for the loan."],
+    ["Can I apply if I live in a rented house currently?","Yes — the scheme is specifically designed for families who <strong>do not own a constructed home</strong>. You do, however, need to own a plot (within the size limit) on which the house will be built."],
+    ["Does having a car disqualify me from ACAG?","There is no written \"car ban\", but vehicle ownership is part of your <strong>NSER household profile</strong> and raises your PMT score. A significantly higher PMT score can push you above the 60 threshold and make you ineligible."],
+    ["Can a person over 60 years old apply?","No upper age limit has been publicly announced. You must be the <strong>head of family per NADRA</strong>, hold a valid CNIC, and satisfy the bank about repayment. In older-age cases the bank may look at family income support or a guarantor."],
+    ["Can non-Muslims apply for Apni Chat Apna Ghar?","Yes. The scheme is open to <strong>all eligible permanent residents of Punjab regardless of religion</strong>. Eligibility is based on residency, land, PMT score and family-head status only."],
+    ["Is there a minimum land size requirement, or only maximum?","Only maximum limits are defined — <strong>up to 5 marla urban and up to 10 marla rural</strong>. There is no published minimum, but the plot must be practically buildable with an approvable house design."],
+    ["Can I apply if my land is agricultural, not residential?","The loan is for <strong>residential construction</strong>, so the plot should be residential-use land with a clean record (Fard). Agricultural-classified land generally needs conversion/permission first — confirm your specific case with PHATA before applying."]
+  ]},
+  {t:"Apply Online",icon:"laptop",qs:[
+    ["Do I need a computer to apply, or can I use my phone?","A phone is enough. The portal <strong>acag.punjab.gov.pk works on mobile browsers</strong> — use an updated Chrome and a stable internet connection. Keep your document photos/scans ready in your phone gallery."],
+    ["Can someone else apply on my behalf?","The application must be in the <strong>family head's own name</strong>, using their CNIC and the OTP that comes on the SIM registered against their CNIC. A family member can help with typing, but never hand your OTP to agents or strangers — the registration is free and doesn't need any middleman."],
+    ["What browser works best for the ACAG portal?","Any updated modern browser works — <strong>Chrome, Edge or Firefox</strong>. If a page misbehaves, clear the browser cache, try incognito mode, or switch networks (Wi-Fi ↔ mobile data)."],
+    ["Is the ACAG registration in Urdu or English?","The portal form is primarily in <strong>simple English</strong>, with straightforward fields (CNIC, plot details, contact). Urdu help is widely available — including the step-by-step guides on this website."],
+    ["Can I save my application and complete it later?","You can log back in with your <strong>CNIC number</strong> to continue and track your application. Always note down your application/tracking number after submission — every later step asks for it."],
+    ["What if the portal is down or not loading?","Try again at an off-peak time (early morning/late night), clear cache, or use another browser/network. Applications are accepted on a <strong>rolling basis</strong>, so a few hours' delay does not cost you your chance."],
+    ["How many times can I apply if rejected?","If your application is rejected due to a fixable issue (e.g. land record mismatch, expired CNIC), you can <strong>correct the issue and apply again</strong> in the ongoing/next round. Read the objection reason in your dashboard carefully before reapplying."],
+    ["Is there a mobile app for Apni Chat Apna Ghar?","As of 2026 there is <strong>no official mobile app</strong>. Beware of fake apps on app stores — the only official channel is the website <strong>acag.punjab.gov.pk</strong>."]
+  ]},
+  {t:"PMT Score",icon:"gauge",qs:[
+    ["What does a PMT score of 0 mean?","PMT runs on a 0–100 scale where <strong>lower means poorer</strong>. A score near 0 indicates an extremely low-welfare household — such families easily pass the means test (though all other conditions like land ownership still apply)."],
+    ["Is PMT score the same as poverty score?","Practically yes. <strong>PMT (Proxy Means Test)</strong> is the technical name of the welfare/poverty score calculated from your household's NSER survey data — assets, family size, income indicators and living conditions."],
+    ["Can I see my exact PMT score number, or just eligible/not eligible?","Scheme portals usually show only the <strong>eligibility outcome</strong>. To know your household's NSER/PMT details, use BISP's official channels — the 8171 service or your nearest <strong>BISP registration center</strong>."],
+    ["How often is PMT score updated?","Your PMT changes only when your household is <strong>re-surveyed</strong> in the NSER dynamic registry. If your circumstances have changed (job loss, family size), visit a BISP registration center and request a resurvey."],
+    ["Does PMT score affect other schemes like BISP Kafalat?","Yes — the <strong>same NSER/PMT score</strong> is used across multiple social programs, but each program has its own threshold. ACAG uses ≤60; BISP Kafalat uses a much lower cut-off. Qualifying for one does not automatically qualify you for another."]
+  ]},
+  {t:"Documents",icon:"file",qs:[
+    ["Do I need my nikahnama (marriage certificate) to apply?","It is not in the standard document list. Family status is verified through <strong>NADRA records (FRC)</strong>. Keep the nikahnama handy only if your NADRA family record is incomplete or newly updated."],
+    ["What if my CNIC picture is old and I look different now?","No problem, as long as the CNIC is <strong>valid (not expired)</strong>. Verification is done against NADRA's database, not by matching your face to the photo. If your CNIC is expired, renew it before applying."],
+    ["Can I use a family member's utility bill if I don't have my own?","Generally the bill of the household/plot address is acceptable if it matches your family record — an own-name bill is ideal. If your case is unusual, keep supporting proof and confirm during PHATA verification."],
+    ["Is a driving license accepted as ID proof instead of CNIC?","No. The entire system is <strong>CNIC-based</strong> — registration, OTP, verification and banking all run on your CNIC number. A driving license cannot replace it."],
+    ["Do documents need to be attested by a notary?","Online uploads generally <strong>do not need notarization</strong> — clear, complete scans are what matter. If any affidavit is required, the portal/PHATA specifies its exact format at that stage."]
+  ]},
+  {t:"Status Check",icon:"search",qs:[
+    ["Why does my status show in Urdu only, not English?","Some SMS updates and notices are sent in <strong>Urdu</strong> so the maximum number of applicants can read them. Your portal dashboard remains in English — and our Status Decoder explains what each status means in simple words."],
+    ["Can I check status using someone else's CNIC on their behalf with permission?","Yes, with their permission — you'll need their <strong>CNIC number</strong> (and access to their registered SIM if an OTP is asked). Never use someone's CNIC without consent, and never share OTPs with anyone claiming to \"help\"."],
+    ["Does status update on weekends and holidays?","The portal itself is online 24/7, but <strong>human steps</strong> — verification, bank checks, approvals — progress on working days. Don't worry if nothing changes over a weekend."],
+    ["What does \"Pending Bank Verification\" status mean?","It means the <strong>Bank of Punjab</strong> is checking your record — loan default history, account setup and repayment capacity — before final approval/disbursement. It typically clears within days to a few weeks; contact the bank if it stays stuck unusually long."]
+  ]},
+  {t:"Balloting",icon:"shuffle",qs:[
+    ["Is balloting live-streamed or public?","Balloting is a <strong>computerized draw</strong> and results are published officially. Live coverage varies by phase — follow the Punjab Government's and PHATA's official announcements rather than social-media claims."],
+    ["Can I attend the balloting event in person?","There is generally <strong>no need or provision for public attendance</strong> — the draw is electronic. Selected applicants are informed via the portal dashboard and SMS on the registered number."],
+    ["Does balloting happen online or is it a physical event?","It is a <strong>computerized electronic draw</strong> conducted under official supervision. No physical presence, fee or \"source\" can influence it — anyone claiming otherwise is a fraudster."],
+    ["How many applicants are usually selected per balloting round?","There is no fixed public number — selection depends on the <strong>district quota and funds allocated for that phase</strong>. Unselected verified applicants remain in the pool for subsequent rounds."]
+  ]},
+  {t:"Installments & Loan",icon:"coins",qs:[
+    ["What happens if I miss a monthly installment payment?","Contact the <strong>Bank of Punjab</strong> before or immediately after the missed date. Late payment consequences are as per your loan agreement, and repeated default can lead to recovery action and cancellation — communication early is always the safest move."],
+    ["Can I pay off the loan early?","Early repayment of the principal is generally allowed — and since the loan is <strong>interest-free</strong>, there's no markup to save, but you become debt-free sooner. Confirm the early-settlement procedure with your Bank of Punjab branch."],
+    ["Is the Rs. 14,000 installment fixed or does it vary?","Rs. 14,000/month is an <strong>indicative figure</strong>. Your exact installment is written in your loan agreement and depends on your sanctioned amount and tenure — always follow the agreement, not hearsay."],
+    ["What if construction costs exceed Rs. 15 lakh?","Any amount above the loan cap is <strong>your own responsibility</strong>. That's why PHATA-approved economical designs matter — plan a house that finishes within budget rather than an oversized structure that stalls."],
+    ["Does the loan cover furniture and interior finishing?","No. The loan is strictly for <strong>construction</strong> — released in stages against verified progress (foundation, structure, finishing). Furniture, decoration and luxury fittings are not covered."],
+    ["What is the penalty for late payment?","Late-payment terms are defined in your <strong>loan agreement</strong> with the Bank of Punjab. The practical rule: if a problem is coming, inform the bank before the due date — arrangements are far easier before default than after."],
+    ["Can I get an extension if I cannot pay on time?","In genuine hardship cases you can request the <strong>Bank of Punjab/PHATA</strong> for restructuring or extension — it is discretionary and case-by-case. Documentation of your hardship helps."],
+    ["Is there a grace period before installments start?","Yes — there is a <strong>grace period of about 3 months</strong> after disbursement before monthly installments begin, as per official scheme terms. Your agreement states the exact start date."]
+  ]},
+  {t:"Beneficiary List",icon:"list",qs:[
+    ["How do I find my name in the Apni Chat Apna Ghar beneficiary list?","Log in at <strong>acag.punjab.gov.pk</strong> with your CNIC — your dashboard shows whether you've been selected. Selected applicants also receive an <strong>SMS on the registered number</strong>. That is the authentic \"list check\"."],
+    ["Is the beneficiary list published district-wise or all Punjab together?","Processing and quotas run <strong>district-wise</strong>, and announcements are typically made accordingly. Your own result is always visible in your portal dashboard regardless of district."],
+    ["Can I download the beneficiary list as PDF?","Various \"PDF lists\" circulate on social media — <strong>verify only through the official portal</strong>. Fake lists are a known scam tactic used to demand money for \"inclusion\". Your dashboard is the only proof that matters."],
+    ["How often is the beneficiary list updated?","After every <strong>verification and balloting batch</strong>. Since applications are rolling, new selections keep getting added phase by phase throughout the year."]
+  ]},
+  {t:"Construction & Inspection",icon:"hammer",qs:[
+    ["Who approves the house design and map?","<strong>PHATA</strong> provides/approves standard economical house designs suited to small plots, and local building regulations apply. Using an approved design keeps your inspections and tranche releases smooth."],
+    ["Can I build a 2-story house under this scheme?","The loan is sized for a <strong>basic single-unit family home</strong>. Building extra storeys means extra cost from your own pocket and must still meet approvals — discuss your plan with PHATA before starting."],
+    ["What happens if PHATA inspection finds a problem with my construction?","The next <strong>tranche is held</strong> until the issue is corrected. Fix the pointed-out deficiency, then request re-inspection — releases resume once the stage is verified. Cutting corners only delays your own money."],
+    ["How long do I have to complete construction after loan approval?","Construction follows a <strong>stage-wise timeline</strong> defined in your agreement — each tranche is tied to completing a stage within the expected window. Long unexplained delays can freeze further releases, so keep steady progress."],
+    ["Can I hire any contractor, or does PHATA assign one?","<strong>Your choice</strong> — PHATA does not assign contractors. You may self-build or hire any mason/contractor; PHATA's role is verifying that each stage is genuinely complete before releasing funds."],
+    ["What if I run out of money mid-construction?","Talk to <strong>PHATA and the Bank of Punjab early</strong> — don't silently stop work. Staying on the approved economical design is the best prevention; remember tranches release only against verified progress, so keep the plan realistic."]
+  ]},
+  {t:"Mehfooz Ghar",icon:"shield",qs:[
+    ["Who is eligible for Mehfooz Ghar loan?","<strong>Mehfooz Ghar</strong> is the Punjab component for families who already own a house whose <strong>roof/structure is unsafe</strong> — it provides an interest-free loan for repair and renovation. Eligibility runs on the same pattern: Punjab resident, NSER-registered low-income household, verified unsafe structure. Exact current terms are on the official portal."],
+    ["Can I apply for Mehfooz Ghar if I already have ACAG loan?","As a general rule, one household holds <strong>one active benefit at a time</strong> — you would not run an ACAG construction loan and a Mehfooz Ghar repair loan simultaneously. Confirm the current policy on the official portal before applying."],
+    ["What counts as an \"unsafe roof\" for Mehfooz Ghar eligibility?","Typically a <strong>kacha, cracked or structurally dilapidated roof/structure</strong> that poses risk to the family — verified through the survey and physical inspection process, not self-declaration alone."]
+  ]},
+  {t:"Apni Zameen Apna Ghar (AZAG)",icon:"map",qs:[
+    ["Can I apply for both AZAG and ACAG at the same time?","<strong>AZAG</strong> gives a plot to landless families, while <strong>ACAG</strong> funds construction for those who already own a plot — so logically they run in sequence, not together. Policy-wise, apply for the one that matches your current situation and confirm combination rules on the official portal."],
+    ["What size plot does AZAG give?","AZAG allots <strong>small residential plots (commonly around 3 marla)</strong> in designated government schemes, per official phase announcements. Sizes and locations are defined scheme-by-scheme."],
+    ["Is AZAG plot free forever or do I pay something later?","Plots are allotted to eligible landless families <strong>on the terms written in the allotment letter</strong> — which typically include usage conditions (build and live, non-transfer for a defined period). Read your allotment terms carefully; the plot is for housing, not resale."]
+  ]}
+  ];
+
+  var ICONS={
+    home:'<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
+    check:'<path d="M20 6 9 17l-5-5"/>',
+    laptop:'<rect width="18" height="12" x="3" y="4" rx="2" ry="2"/><line x1="2" x2="22" y1="20" y2="20"/>',
+    gauge:'<path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/>',
+    file:'<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/>',
+    search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+    shuffle:'<path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.8-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2 4 4-4 4"/><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2"/><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14 4 4-4 4"/>',
+    coins:'<circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/>',
+    list:'<line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/>',
+    hammer:'<path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/>',
+    shield:'<path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2c.57.14.76.69.76 1.23v6.77Z"/><path d="m9 12 2 2 4-4"/>',
+    map:'<path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/>'
+  };
+
+  var root=document.getElementById('acagfaq');if(!root)return;
+  var chipsEl=document.getElementById('faqChips'),bodyEl=document.getElementById('faqBody'),
+      noneEl=document.getElementById('faqNone'),searchEl=document.getElementById('faqSearch'),
+      clearEl=document.getElementById('faqClear');
+  var activeCat=-1; /* -1 = All */
+  var qNum=0;
+
+  /* build chips */
+  function chip(label,idx,count){
+    var b=document.createElement('button');b.type='button';b.className='faq-chip'+(idx===activeCat?' on':'');
+    b.innerHTML=label+' <small>'+count+'</small>';
+    b.addEventListener('click',function(){activeCat=idx;render();});
+    return b;
+  }
+  function renderChips(){
+    chipsEl.innerHTML='';var total=0;CATS.forEach(function(c){total+=c.qs.length;});
+    chipsEl.appendChild(chip('All',-1,total));
+    CATS.forEach(function(c,i){chipsEl.appendChild(chip(c.t,i,c.qs.length));});
+  }
+
+  /* build body */
+  function render(){
+    renderChips();
+    var term=(searchEl.value||'').trim().toLowerCase();
+    clearEl.style.display=term?'block':'none';
+    bodyEl.innerHTML='';qNum=0;var shown=0;
+    CATS.forEach(function(cat,ci){
+      var items=cat.qs.map(function(qa,qi){qNum++;return{q:qa[0],a:qa[1],n:qNum};})
+        .filter(function(it){
+          if(activeCat!==-1&&activeCat!==ci)return false;
+          if(!term)return true;
+          return (it.q+' '+it.a).toLowerCase().indexOf(term)!==-1;
+        });
+      if(!items.length)return;
+      shown+=items.length;
+      var g=document.createElement('div');g.className='faq-group';
+      g.innerHTML='<div class="faq-group-hd"><div class="faq-group-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'+(ICONS[cat.icon]||ICONS.home)+'</svg></div><div><h3>'+cat.t+'</h3><small>'+items.length+' question'+(items.length>1?'s':'')+'</small></div></div>';
+      items.forEach(function(it){
+        var item=document.createElement('div');item.className='faq-item';
+        var btn=document.createElement('button');btn.className='faq-q';btn.type='button';btn.setAttribute('aria-expanded','false');
+        btn.innerHTML='<span class="faq-num">Q'+it.n+'</span><span class="faq-qtext">'+it.q+'</span><span class="faq-chev"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></span>';
+        var ans=document.createElement('div');ans.className='faq-a';
+        ans.innerHTML='<div class="faq-a-in">'+it.a+'</div>';
+        btn.addEventListener('click',function(){
+          var open=item.classList.contains('open');
+          bodyEl.querySelectorAll('.faq-item.open').forEach(function(o){
+            o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=null;
+            o.querySelector('.faq-q').setAttribute('aria-expanded','false');
+          });
+          if(!open){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';btn.setAttribute('aria-expanded','true');}
+        });
+        item.appendChild(btn);item.appendChild(ans);g.appendChild(item);
+      });
+      bodyEl.appendChild(g);
+    });
+    noneEl.style.display=shown?'none':'block';
+  }
+
+  var deb;searchEl.addEventListener('input',function(){clearTimeout(deb);deb=setTimeout(render,150);});
+  clearEl.addEventListener('click',function(){searchEl.value='';render();searchEl.focus();});
+  render();
+
+  /* FAQPage JSON-LD (built from same data) */
+  var main=[];CATS.forEach(function(c){c.qs.forEach(function(qa){
+    main.push({"@type":"Question","name":qa[0],"acceptedAnswer":{"@type":"Answer","text":qa[1].replace(/<[^>]+>/g,'')}});
+  });});
+  var s=document.createElement('script');s.type='application/ld+json';
+  s.textContent=JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":main});
+  document.head.appendChild(s);
+})();
+</script>
+</div>
+<!-- ============================================================ END FAQs ============================================================ -->
