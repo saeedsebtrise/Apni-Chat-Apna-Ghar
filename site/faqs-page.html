@@ -51,6 +51,9 @@
 .faq-search input:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(17,94,59,0.10);}
 .faq-search .faq-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:0;background:var(--green-bg);
   color:var(--green);width:28px;height:28px;border-radius:50%;font-weight:800;cursor:pointer;display:none;font-size:.85rem;}
+.acagfaq button.faq-clear{background:var(--green-bg)!important;color:var(--green)!important;}
+.acagfaq button.faq-clear:hover,
+.acagfaq button.faq-clear:focus{background:var(--green)!important;color:#fff!important;}
 
 /* ── Category chips ── */
 .faq-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:0 auto 30px;max-width:920px;}
@@ -60,6 +63,13 @@
 .faq-chip:hover{border-color:var(--green);color:var(--green);}
 .faq-chip.on{background:var(--green);border-color:var(--green);color:#fff;box-shadow:0 4px 12px rgba(17,94,59,0.25);}
 .faq-chip small{opacity:.65;font-weight:800;margin-left:4px;}
+/* theme armor: force our colors so theme's aggressive button hover/focus styles can't override */
+.acagfaq button.faq-chip{background:#fff!important;color:var(--body)!important;text-shadow:none!important;}
+.acagfaq button.faq-chip:hover,
+.acagfaq button.faq-chip:focus{background:#fff!important;color:var(--green)!important;border-color:var(--green)!important;}
+.acagfaq button.faq-chip.on{background:var(--green)!important;color:#fff!important;border-color:var(--green)!important;}
+.acagfaq button.faq-chip.on:hover,
+.acagfaq button.faq-chip.on:focus{background:var(--green2)!important;color:#fff!important;}
 
 /* ── Category group ── */
 .faq-group{margin-bottom:26px;}
@@ -77,7 +87,7 @@
 .faq-q{width:100%;display:flex;align-items:center;gap:12px;padding:15px 18px;background:none!important;
   border:0;cursor:pointer;text-align:left;font-family:inherit;font-size:.95rem;font-weight:700;color:var(--ink)!important;
   -webkit-appearance:none;appearance:none;}
-.faq-q:hover{color:var(--green)!important;}
+.faq-q:hover,.faq-q:focus{background:none!important;color:var(--green)!important;}
 .faq-q .faq-num{flex-shrink:0;font-size:.7rem;font-weight:800;color:var(--green);background:var(--green-bg);
   border-radius:7px;padding:4px 8px;letter-spacing:.02em;}
 .faq-q .faq-qtext{flex:1;}
