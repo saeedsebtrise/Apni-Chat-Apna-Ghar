@@ -1,0 +1,332 @@
+<!-- ============================================================
+  BLOG #1 — Apna Ghar, Mehfooz Ghar — Complete Guide 2026
+  apnichatapnaghar.net.pk
+  Facts verified via web research (July 2026 launch, Kahna roof-collapse
+  trigger, Rs.500,000 repair / Rs.1,000,000 additional-floor loan
+  categories, same eligibility + portal as ACAG). Indicative installment
+  figures are clearly marked as estimates, not official numbers.
+  No font <link> lines — fonts come from the site-wide header (WPCode).
+  No external images — inline SVG icons only, keeps the page light.
+  Buttons are "theme-armored" (!important) against Kadence's hover styles.
+  Paste into a WordPress "Custom HTML" block for the blog post.
+============================================================= -->
+<div class="mgblog" id="mgblog">
+<style>
+.mgblog{--green:#115e3b;--green2:#166031;--green-bg:#f0f7f3;--gold:#C8A24B;--gold-bg:#fbf3df;
+  --orange:#F8802E;--orange-bg:rgba(248,128,46,0.08);--orange-border:rgba(248,128,46,0.25);
+  --red:#b91c1c;--red-bg:#fef2f2;--red-border:#f6c9c9;
+  --ink:#0b2216;--body:#3d5247;--mut:#6b7f74;--line:rgba(17,94,59,0.10);--card:#ffffff;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--body);
+  width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
+  background:linear-gradient(180deg,#f7faf8 0%,#eef6f1 55%,#f7faf8 100%);padding:40px 0 60px;line-height:1.7;}
+.mgblog *,.mgblog *::before,.mgblog *::after{box-sizing:border-box;margin:0;padding:0;}
+.mgblog .wrap{max-width:840px;margin:0 auto;padding:0 20px;}
+.mgblog .u{font-family:'Noto Nastaliq Urdu','Jameel Noori Nastaleeq',serif;direction:rtl;font-size:.95em;line-height:2.1;}
+.mgblog h2,.mgblog h3{color:var(--ink);}
+.mgblog p{color:var(--body);}
+.mgblog strong{color:var(--ink);}
+.mgblog a{color:var(--green);font-weight:700;}
+
+/* ── Eyebrow / meta ── */
+.mg-eyebrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:18px;font-size:.78rem;font-weight:700;color:var(--mut);}
+.mg-eyebrow .tag{display:inline-flex;align-items:center;gap:6px;background:var(--orange-bg);color:var(--orange);
+  border:1px solid var(--orange-border);border-radius:50px;padding:5px 12px;font-size:.7rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.06em;}
+.mg-eyebrow .dot{width:4px;height:4px;border-radius:50%;background:var(--line);}
+
+/* ── H1 ── */
+.mg-h1{font-size:clamp(1.8rem,4.2vw,2.7rem)!important;font-weight:900!important;color:var(--ink)!important;
+  line-height:1.2!important;letter-spacing:-0.02em;margin:0 0 12px!important;}
+.mg-h1 span{background:linear-gradient(120deg,#115e3b 0%,#1d7a40 55%,#C8A24B 120%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.mg-sub{font-size:1rem;color:var(--mut);max-width:640px;margin-bottom:8px;}
+.mg-sub-u{display:block;color:#38604a;margin-top:6px;}
+
+.mg-meta{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:20px 0 32px;padding:14px 18px;
+  background:#fff;border:1px solid var(--line);border-radius:12px;font-size:.8rem;color:var(--mut);}
+.mg-meta span{display:inline-flex;align-items:center;gap:6px;font-weight:700;}
+.mg-meta svg{width:14px;height:14px;color:var(--green);}
+
+/* ── Why-it-matters callout ── */
+.mg-callout{display:flex;gap:14px;align-items:flex-start;border-radius:14px;padding:18px 20px;margin:0 0 34px;
+  background:var(--gold-bg);border:1.5px solid var(--gold);}
+.mg-callout .ic{width:38px;height:38px;border-radius:10px;background:#fff;border:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mg-callout .ic svg{width:19px;height:19px;color:#8a6d1f;}
+.mg-callout p{font-size:.9rem;color:#5b4a12;line-height:1.7;}
+.mg-callout p strong{color:#3f3208;}
+
+/* ── At a glance stat grid ── */
+.mg-h2{font-size:clamp(1.3rem,2.6vw,1.7rem);font-weight:900;color:var(--ink);margin:38px 0 6px;
+  display:flex;align-items:center;gap:12px;}
+.mg-h2 .num{width:34px;height:34px;border-radius:10px;background:var(--green);color:#fff;font-size:.95rem;
+  font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  box-shadow:0 4px 10px rgba(17,94,59,0.25);}
+.mg-h2-sub{font-size:.86rem;color:var(--mut);margin-bottom:16px;}
+
+.mg-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px;}
+.mg-stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center;}
+.mg-stat b{display:block;font-size:1.05rem;font-weight:900;color:var(--green);line-height:1.2;}
+.mg-stat small{font-size:.68rem;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.03em;display:block;margin-top:3px;}
+
+/* ── Two loan category cards ── */
+.mg-loan-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:6px 0 8px;}
+.mg-loan-card{background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden;
+  box-shadow:0 4px 16px rgba(17,94,59,0.05);}
+.mg-loan-card .hd{padding:16px 18px;color:#fff;display:flex;align-items:center;gap:12px;}
+.mg-loan-card.repair .hd{background:linear-gradient(135deg,#166031,#0e4522);}
+.mg-loan-card.floor .hd{background:linear-gradient(135deg,var(--orange),#c2610a);}
+.mg-loan-card .hd .ic{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,0.16);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mg-loan-card .hd .ic svg{width:18px;height:18px;}
+.mg-loan-card .hd b{font-size:.92rem;font-weight:800;display:block;}
+.mg-loan-card .hd span{font-size:.72rem;opacity:.85;}
+.mg-loan-card .bd{padding:18px;}
+.mg-loan-card .amount{font-size:1.6rem;font-weight:900;color:var(--ink);line-height:1;}
+.mg-loan-card .amount small{font-size:.7rem;font-weight:700;color:var(--mut);display:block;margin-top:4px;}
+.mg-loan-card .bd p{font-size:.83rem;color:var(--body);margin-top:10px;line-height:1.65;}
+@media(max-width:640px){.mg-loan-grid{grid-template-columns:1fr;}.mg-stats{grid-template-columns:1fr 1fr;}}
+
+/* ── lists / steps ── */
+.mg-list{margin:6px 0 8px 0;display:grid;gap:10px;}
+.mg-li{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+  border-radius:11px;padding:13px 16px;}
+.mg-li .ic{width:30px;height:30px;border-radius:8px;background:var(--green-bg);color:var(--green);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mg-li .ic svg{width:15px;height:15px;}
+.mg-li p{font-size:.87rem;}
+
+.mg-steps{counter-reset:mgstep;display:grid;gap:12px;margin:6px 0 8px;}
+.mg-step{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+  border-radius:12px;padding:15px 18px;}
+.mg-step .n{width:30px;height:30px;border-radius:50%;background:var(--gold);color:#3f3208;font-weight:800;
+  font-size:.86rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mg-step b{display:block;font-size:.9rem;color:var(--ink);margin-bottom:2px;}
+.mg-step p{font-size:.83rem;margin:0;}
+
+/* ── warning / info boxes ── */
+.mg-box{display:flex;gap:12px;align-items:flex-start;border-radius:12px;padding:14px 16px;margin:16px 0;font-size:.85rem;line-height:1.7;}
+.mg-box svg{flex-shrink:0;margin-top:2px;width:18px;height:18px;}
+.mg-box.red{background:var(--red-bg);border:1.5px solid var(--red-border);color:#7f1d1d;}
+.mg-box.gold{background:var(--gold-bg);border:1.5px solid var(--gold);color:#5b4a12;}
+.mg-box.green{background:var(--green-bg);border:1.5px solid rgba(17,94,59,0.25);color:#0f3a25;}
+
+/* ── comparison table ── */
+.mg-table-wrap{overflow-x:auto;margin:10px 0 8px;border:1px solid var(--line);border-radius:12px;}
+.mg-table{width:100%;border-collapse:collapse;font-size:.83rem;min-width:480px;}
+.mg-table th{background:var(--green);color:#fff;text-align:left;padding:11px 14px;font-weight:700;font-size:.76rem;}
+.mg-table td{padding:11px 14px;border-top:1px solid var(--line);}
+.mg-table tr:nth-child(even) td{background:#f8fbf9;}
+
+/* ── mini FAQ accordion ── */
+.mg-faq{display:grid;gap:10px;margin:6px 0 8px;}
+.mg-faq-item{background:#fff;border:1.5px solid var(--line);border-radius:12px;overflow:hidden;}
+.mg-faq-item.open{border-color:rgba(17,94,59,0.35);box-shadow:0 6px 18px rgba(17,94,59,0.07);}
+.mg-faq-q{width:100%;display:flex;align-items:center;gap:10px;padding:14px 16px;border:0;cursor:pointer;
+  text-align:left;font-family:inherit;font-size:.9rem;font-weight:700;-webkit-appearance:none;appearance:none;}
+.mg-faq-q .qtext{flex:1;}
+.mg-faq-chev{width:24px;height:24px;border-radius:50%;background:var(--green-bg);display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;transition:transform .25s,background .25s;}
+.mg-faq-chev svg{width:12px;height:12px;stroke:var(--green);transition:stroke .25s;}
+.mg-faq-item.open .mg-faq-chev{transform:rotate(180deg);background:var(--green);}
+.mg-faq-item.open .mg-faq-chev svg{stroke:#fff;}
+.mg-faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.mg-faq-a-in{padding:0 16px 15px;font-size:.85rem;color:var(--body);line-height:1.75;}
+/* theme armor: Kadence applies dark hover backgrounds to plain <button> — force our own */
+.mgblog button.mg-faq-q{background:none!important;color:var(--ink)!important;}
+.mgblog button.mg-faq-q:hover,
+.mgblog button.mg-faq-q:focus{background:none!important;color:var(--green)!important;}
+
+/* ── CTA ── */
+.mg-cta{margin:38px 0 10px;border-radius:18px;padding:26px 24px;text-align:center;color:#fff;
+  background:linear-gradient(135deg,#0e4522 0%,#166031 60%,#1d7a40 100%);}
+.mg-cta h3{color:#fff;font-size:1.15rem;margin-bottom:6px;}
+.mg-cta p{color:rgba(255,255,255,0.8);font-size:.85rem;max-width:480px;margin:0 auto 16px;}
+.mg-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#3f3208!important;
+  font-weight:800;font-size:.88rem;padding:12px 22px;border-radius:10px;text-decoration:none!important;}
+.mg-cta-btn:hover{background:#b8913f;}
+.mg-cta-btn svg{width:15px;height:15px;}
+
+.mg-disclaimer{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px dashed var(--line);
+  border-radius:12px;padding:14px 16px;margin-top:28px;font-size:.78rem;color:var(--mut);line-height:1.7;}
+.mg-disclaimer svg{flex-shrink:0;margin-top:2px;width:16px;height:16px;}
+
+@media(max-width:600px){.mgblog{padding:28px 0 44px;}.mg-stats{grid-template-columns:1fr 1fr;}}
+</style>
+
+  <article class="wrap">
+
+    <div class="mg-eyebrow">
+      <span class="tag">New Scheme</span><span class="dot"></span>
+      <span>Blog</span><span class="dot"></span>
+      <span>Updated July 21, 2026</span>
+    </div>
+
+    <h1 class="mg-h1">Apna Ghar, Mehfooz Ghar — <span>Complete Guide 2026</span></h1>
+    <p class="mg-sub">Punjab's new interest-free loan scheme for repairing unsafe roofs and adding a floor to an existing home — eligibility, loan amounts, documents and how to apply.
+      <span class="u mg-sub-u">اپنا گھر، محفوظ گھر — کمزور چھت کی مرمت اور اضافی منزل کی تعمیر کے لیے نیا بلا سود قرض</span></p>
+
+    <div class="mg-meta">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg> Launched July 8, 2026</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 6 min read</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2c.57.14.76.69.76 1.23v6.77Z"/></svg> Independent guide</span>
+    </div>
+
+    <div class="mg-callout">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div>
+      <p><strong>Why this scheme exists:</strong> After a roof collapse in <strong>Kahna</strong>, on the outskirts of Lahore, drew attention to how many homes in Punjab's older, low-income neighbourhoods have structurally unsafe roofs, Chief Minister <strong>Maryam Nawaz Sharif</strong> approved a new safety-focused loan category — <strong>"Apna Ghar, Mehfooz Ghar"</strong> ("My Home, Safe Home") — as an extension of the existing <a href="https://apnichatapnaghar.net.pk/">Apni Chhat, Apna Ghar</a> programme.</p>
+    </div>
+
+    <h2 class="mg-h2"><span class="num">1</span> At a Glance</h2>
+    <div class="mg-stats">
+      <div class="mg-stat"><b>2</b><small>Loan Categories</small></div>
+      <div class="mg-stat"><b>0%</b><small>Interest / Markup</small></div>
+      <div class="mg-stat"><b>PHATA</b><small>Executing Agency</small></div>
+      <div class="mg-stat"><b>Same Portal</b><small>acag.punjab.gov.pk</small></div>
+    </div>
+
+    <h2 class="mg-h2"><span class="num">2</span> The Two Loan Categories</h2>
+    <p class="mg-h2-sub">Both are interest-free and repaid in easy monthly installments, same as regular ACAG.</p>
+    <div class="mg-loan-grid">
+      <div class="mg-loan-card repair">
+        <div class="hd">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></span>
+          <div><b>Roof / Structure Repair</b><span>For damaged, weak or unsafe roofs</span></div>
+        </div>
+        <div class="bd">
+          <div class="amount">Rs. 500,000<small>Maximum interest-free loan</small></div>
+          <p>For families whose house has a cracked, kaccha or structurally weak roof that needs repair or rebuilding to be safe to live in.</p>
+        </div>
+      </div>
+      <div class="mg-loan-card floor">
+        <div class="hd">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 9h1"/><path d="M14 9h1"/></svg></span>
+          <div><b>Additional Floor</b><span>For expanding an existing house</span></div>
+        </div>
+        <div class="bd">
+          <div class="amount">Rs. 1,000,000<small>Maximum interest-free loan</small></div>
+          <p>For families who already own a house and need to add another storey/floor to accommodate a growing family.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="mg-h2"><span class="num">3</span> Who Is Eligible</h2>
+    <p class="mg-h2-sub">The Chief Minister directed that eligibility criteria and procedures stay <strong>identical to regular Apni Chhat Apna Ghar</strong> — no extra burden, no new conditions.</p>
+    <div class="mg-list">
+      <div class="mg-li"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="16" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg></span><p><strong>Permanent resident of Punjab</strong>, verified through your CNIC/NADRA record.</p></div>
+      <div class="mg-li"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span><p>You are the <strong>head of family</strong> as recorded by NADRA.</p></div>
+      <div class="mg-li"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><p>You <strong>own the house or the plot it sits on</strong>, within the standard size limit — up to 5 marla in urban areas, up to 10 marla in rural areas.</p></div>
+      <div class="mg-li"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></span><p>Registered in <strong>NSER</strong> with a <strong>PMT score of 60 or below</strong> (same threshold as the main scheme).</p></div>
+      <div class="mg-li"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg></span><p><strong>No bank loan default</strong> and <strong>no criminal case or FIR</strong> registered against you.</p></div>
+    </div>
+    <div class="mg-box gold">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#5b4a12" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <span>If you already meet regular ACAG eligibility, you meet Mehfooz Ghar eligibility too — the difference is only in <strong>what the loan is used for</strong> (repair/expansion of an existing home, instead of building a new one on an empty plot).</span>
+    </div>
+
+    <h2 class="mg-h2"><span class="num">4</span> Documents You'll Need</h2>
+    <div class="mg-list">
+      <div class="mg-li"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="14" x="3" y="5" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M14.5 10.5h3"/><path d="M6 15.5h12"/></svg></span><p><strong>Valid CNIC</strong> (front and back, clear scan).</p></div>
+      <div class="mg-li"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><p>A <strong>mobile number registered on your own CNIC</strong> — OTP and updates are sent there.</p></div>
+      <div class="mg-li"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><p><strong>Land/house ownership proof</strong> — Fard, registry, or allotment letter for the plot the house is on.</p></div>
+      <div class="mg-li"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span><p><strong>Clear photographs</strong> of the roof/structure's current condition — this supports your case that repair is genuinely needed.</p></div>
+    </div>
+
+    <h2 class="mg-h2"><span class="num">5</span> How to Apply</h2>
+    <div class="mg-steps">
+      <div class="mg-step"><span class="n">1</span><div><b>Go to the official portal</b><p>Applications are processed through the same portal as regular ACAG — <strong>acag.punjab.gov.pk</strong>. Type the address yourself; don't follow links from SMS or WhatsApp forwards.</p></div></div>
+      <div class="mg-step"><span class="n">2</span><div><b>Register with your CNIC</b><p>Create your account with your CNIC number and mobile number, and verify with the OTP you receive.</p></div></div>
+      <div class="mg-step"><span class="n">3</span><div><b>Select the repair/expansion category</b><p>Choose the Mehfooz Ghar option that matches your need — roof/structure repair, or an additional floor — and fill in your property details.</p></div></div>
+      <div class="mg-step"><span class="n">4</span><div><b>Upload documents and submit</b><p>Attach your CNIC, ownership proof and condition photos, review everything once, then submit. Save your application/tracking number.</p></div></div>
+      <div class="mg-step"><span class="n">5</span><div><b>Track verification</b><p>PHATA verifies your NADRA, NSER/PMT and land records before approval — check your dashboard and SMS for updates.</p></div></div>
+    </div>
+
+    <h2 class="mg-h2"><span class="num">6</span> Repayment — What to Expect</h2>
+    <p>Like the main ACAG loan, Mehfooz Ghar is <strong>interest-free</strong> and repaid in easy monthly installments with a grace period before repayment starts. Based on the standard ACAG repayment pattern, widely reported indicative monthly installments are around <strong>Rs. 4,700/month</strong> for the Rs. 500,000 repair loan and around <strong>Rs. 9,300/month</strong> for the Rs. 1,000,000 additional-floor loan.</p>
+    <div class="mg-box red">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#7f1d1d" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <span><strong>These installment figures are estimates</strong> reported alongside the scheme's announcement, not numbers we've verified on an official rate sheet. Your exact monthly installment and tenure will be stated in your own loan agreement once approved — always follow that document over any figure quoted online, including here.</span>
+    </div>
+
+    <h2 class="mg-h2"><span class="num">7</span> Mehfooz Ghar vs Regular ACAG</h2>
+    <div class="mg-table-wrap">
+      <table class="mg-table">
+        <tr><th>Question</th><th>Regular ACAG</th><th>Apna Ghar, Mehfooz Ghar</th></tr>
+        <tr><td>What it's for</td><td>Building a new house on a plot you already own</td><td>Repairing an unsafe roof, or adding a floor to an existing house</td></tr>
+        <tr><td>Loan amount</td><td>Up to Rs. 1,500,000</td><td>Rs. 500,000 (repair) or Rs. 1,000,000 (additional floor)</td></tr>
+        <tr><td>Interest</td><td>0% — interest-free</td><td>0% — interest-free</td></tr>
+        <tr><td>Eligibility</td><td>Punjab resident, NSER/PMT ≤60, land within limit, no default</td><td>Same criteria — unchanged, per CM's directive</td></tr>
+        <tr><td>Where to apply</td><td>acag.punjab.gov.pk</td><td>acag.punjab.gov.pk (same portal)</td></tr>
+      </table>
+    </div>
+
+    <h2 class="mg-h2"><span class="num">8</span> Quick FAQs</h2>
+    <div class="mg-faq" id="mgFaq">
+      <!-- injected by JS -->
+    </div>
+
+    <div class="mg-cta">
+      <h3>Ready to Check Your Eligibility?</h3>
+      <p>Registration for Mehfooz Ghar runs through the same free, official ACAG portal — no agent, no fee.</p>
+      <a class="mg-cta-btn" href="https://acag.punjab.gov.pk" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        Go to Official ACAG Portal
+      </a>
+    </div>
+
+    <div class="mg-disclaimer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <span><strong>apnichatapnaghar.net.pk</strong> is an independent information guide, not affiliated with the Government of Punjab or PHATA. Details in this article are compiled from public news coverage of the July 2026 announcement and may be refined as the official portal publishes final rules. Registration is free — never pay any agent, and never share your CNIC OTP with anyone.</span>
+    </div>
+
+  </article>
+
+<script>
+(function(){
+  var FAQ=[
+    ["Is Apna Ghar, Mehfooz Ghar a separate scheme from ACAG?","No — it's a new loan category launched under the same Apni Chhat, Apna Ghar umbrella, run by PHATA and applied for through the same acag.punjab.gov.pk portal. Think of it as ACAG's \"repair and expand\" option, alongside the original \"build new\" option."],
+    ["Can I apply for Mehfooz Ghar if I already have a regular ACAG construction loan?","As a general rule, one household holds one active housing loan at a time under the programme. If you already have an active ACAG construction loan, confirm current combination rules on the official portal before applying for Mehfooz Ghar."],
+    ["What counts as an \"unsafe roof\" for the repair category?","Typically a kaccha, cracked, or structurally weak roof or wall that poses a risk to the family — assessed through the application review and verification process, not just your own description."],
+    ["Do I need a new PMT survey to apply for Mehfooz Ghar?","Only if your household has never been surveyed under NSER, or your PMT score is outdated. If you're already NSER-registered with a PMT score of 60 or below, that registration carries over."]
+  ];
+  var wrap=document.getElementById('mgFaq');
+  if(wrap){
+    FAQ.forEach(function(pair){
+      var item=document.createElement('div');item.className='mg-faq-item';
+      var btn=document.createElement('button');btn.type='button';btn.className='mg-faq-q';btn.setAttribute('aria-expanded','false');
+      btn.innerHTML='<span class="qtext">'+pair[0]+'</span><span class="mg-faq-chev"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></span>';
+      var ans=document.createElement('div');ans.className='mg-faq-a';
+      ans.innerHTML='<div class="mg-faq-a-in">'+pair[1]+'</div>';
+      btn.addEventListener('click',function(){
+        var open=item.classList.contains('open');
+        wrap.querySelectorAll('.mg-faq-item.open').forEach(function(o){
+          o.classList.remove('open');o.querySelector('.mg-faq-a').style.maxHeight=null;
+          o.querySelector('.mg-faq-q').setAttribute('aria-expanded','false');
+        });
+        if(!open){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';btn.setAttribute('aria-expanded','true');}
+      });
+      item.appendChild(btn);item.appendChild(ans);wrap.appendChild(item);
+    });
+  }
+
+  var faqSchema={
+    "@context":"https://schema.org","@type":"FAQPage",
+    "mainEntity":FAQ.map(function(p){return{"@type":"Question","name":p[0],"acceptedAnswer":{"@type":"Answer","text":p[1]}};})
+  };
+  var s1=document.createElement('script');s1.type='application/ld+json';s1.textContent=JSON.stringify(faqSchema);
+  document.head.appendChild(s1);
+
+  var articleSchema={
+    "@context":"https://schema.org","@type":"Article",
+    "headline":"Apna Ghar, Mehfooz Ghar — Complete Guide 2026",
+    "description":"Punjab's new interest-free loan scheme for repairing unsafe roofs (Rs. 500,000) and adding a floor to an existing home (Rs. 1,000,000) — eligibility, documents and how to apply via acag.punjab.gov.pk.",
+    "datePublished":"2026-07-21","dateModified":"2026-07-21",
+    "author":{"@type":"Organization","name":"ApniChatApnaGhar.net.pk"},
+    "publisher":{"@type":"Organization","name":"ApniChatApnaGhar.net.pk"}
+  };
+  var s2=document.createElement('script');s2.type='application/ld+json';s2.textContent=JSON.stringify(articleSchema);
+  document.head.appendChild(s2);
+})();
+</script>
+</div>
+<!-- ============================================================ END BLOG #1 ============================================================ -->
